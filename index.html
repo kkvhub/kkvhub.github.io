@@ -1,390 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Kaushlendra Kumar Verma | Data & ML Engineer</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<title>Kaushlendra Kumar Verma | Data &amp; ML Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
-  :root {
-    --bg: #0a0a0f;
-    --surface: #13131a;
-    --card: #1a1a24;
-    --border: #2a2a3a;
-    --accent: #00e5ff;
-    --accent2: #7b5ea7;
-    --accent3: #ff6b6b;
-    --text: #e8e8f0;
-    --muted: #7a7a9a;
-    --white: #ffffff;
-    --grad: linear-gradient(135deg, #00e5ff 0%, #7b5ea7 100%);
-  }
+:root {
+  --white: #FFFFFF;
+  --bg-light: #F8F9FA;
+  --heading: #1E293B;
+  --body: #475569;
+  --green: #059669;
+  --green-light: #ecfdf5;
+  --green-border: #a7f3d0;
+  --border: #E2E8F0;
+  --card: #FFFFFF;
+  --muted: #94a3b8;
+  --tag-bg: #F1F5F9;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--white);color:var(--body);font-family:'Inter',sans-serif;font-weight:400;line-height:1.7;overflow-x:hidden;}
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 4rem;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.1rem;color:var(--heading);text-decoration:none;letter-spacing:-0.02em;}
+.nav-logo span{color:var(--green);}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{color:var(--body);text-decoration:none;font-size:0.85rem;font-weight:500;transition:color 0.2s;}
+.nav-links a:hover{color:var(--green);}
 
-  html { scroll-behavior: smooth; }
+/* LAYOUT */
+.container{max-width:1080px;margin:0 auto;padding:0 2rem;}
+section{position:relative;}
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
+/* SECTION LABELS */
+.section-label{font-family:'Montserrat',sans-serif;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--green);font-weight:700;margin-bottom:0.6rem;}
+.section-title{font-family:'Montserrat',sans-serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;color:var(--heading);line-height:1.15;margin-bottom:0.8rem;letter-spacing:-0.02em;}
+.section-desc{color:var(--body);max-width:540px;margin-bottom:3rem;font-size:0.97rem;}
 
-  /* ── NOISE OVERLAY ── */
-  body::before {
-    content: '';
-    position: fixed; inset: 0; z-index: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-  }
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;padding:8rem 0 5rem;background:var(--white);}
+.hero-inner{display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:center;}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:var(--green-light);border:1px solid var(--green-border);border-radius:100px;padding:0.35rem 1rem;font-size:0.76rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--green);margin-bottom:1.6rem;}
+.hero-badge span{width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero-name{font-family:'Montserrat',sans-serif;font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:800;color:var(--heading);line-height:1.08;letter-spacing:-0.03em;margin-bottom:0.6rem;}
+.hero-name .green{color:var(--green);}
+.hero-role{font-family:'Montserrat',sans-serif;font-size:0.97rem;font-weight:600;color:var(--body);margin-bottom:1.4rem;}
+.hero-desc{color:var(--body);font-size:0.97rem;max-width:460px;margin-bottom:2.5rem;line-height:1.75;}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem;}
+.btn-primary{display:inline-flex;align-items:center;gap:0.5rem;background:var(--green);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.85rem;letter-spacing:0.03em;padding:0.8rem 1.8rem;border-radius:8px;text-decoration:none;transition:background 0.2s,transform 0.2s;}
+.btn-primary:hover{background:#047857;transform:translateY(-2px);}
+.btn-outline{display:inline-flex;align-items:center;gap:0.5rem;border:1.5px solid var(--border);color:var(--heading);font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.85rem;padding:0.8rem 1.8rem;border-radius:8px;text-decoration:none;transition:border-color 0.2s,color 0.2s,transform 0.2s;}
+.btn-outline:hover{border-color:var(--green);color:var(--green);transform:translateY(-2px);}
+.hero-stats{display:flex;gap:2.5rem;padding-top:2rem;border-top:1px solid var(--border);}
+.stat-num{font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:800;color:var(--heading);line-height:1;}
+.stat-label{font-size:0.74rem;color:var(--muted);margin-top:0.3rem;}
 
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.2rem 4rem;
-    background: rgba(10,10,15,0.85);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-logo {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800; font-size: 1.2rem;
-    background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    text-decoration: none;
-  }
-  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-  .nav-links a {
-    color: var(--muted); text-decoration: none; font-size: 0.88rem;
-    letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--accent); }
+/* HERO VISUAL */
+.hero-visual{display:flex;justify-content:center;align-items:center;}
+.skill-viz{position:relative;width:360px;height:360px;}
+.viz-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:90px;height:90px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;z-index:10;box-shadow:0 0 0 14px rgba(5,150,105,0.1),0 0 0 28px rgba(5,150,105,0.05);}
+.viz-center-text{font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:800;color:#fff;letter-spacing:0.04em;}
+.viz-ring{position:absolute;top:50%;left:50%;border-radius:50%;border:1px dashed rgba(5,150,105,0.2);transform:translate(-50%,-50%);pointer-events:none;}
+.viz-ring-1{width:180px;height:180px;}
+.viz-ring-2{width:300px;height:300px;}
+.viz-node{position:absolute;display:flex;flex-direction:column;align-items:center;gap:3px;transform:translate(-50%,-50%);}
+.viz-node-icon{width:40px;height:40px;border-radius:9px;background:var(--white);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1rem;box-shadow:0 2px 10px rgba(0,0,0,0.07);}
+.viz-node-label{font-family:'Montserrat',sans-serif;font-size:0.56rem;font-weight:700;color:var(--body);text-transform:uppercase;letter-spacing:0.05em;white-space:nowrap;background:rgba(255,255,255,0.95);padding:1px 5px;border-radius:3px;border:1px solid var(--border);}
 
-  /* ── SECTIONS ── */
-  section { position: relative; z-index: 1; }
+/* ABOUT */
+#about{padding:6rem 0;background:var(--bg-light);}
+.about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:start;}
+.about-text p{color:var(--body);margin-bottom:1.1rem;font-size:0.97rem;}
+.about-text p strong{color:var(--heading);font-weight:600;}
+.about-quote{border-left:3px solid var(--green);padding:1rem 1.5rem;background:var(--green-light);border-radius:0 8px 8px 0;margin-top:1.5rem;color:var(--heading);font-size:0.92rem;font-style:italic;line-height:1.6;}
+.about-right{padding-top:0.5rem;}
+.tag-group-label{font-family:'Montserrat',sans-serif;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);font-weight:700;margin-bottom:0.7rem;margin-top:1.5rem;}
+.tags{display:flex;flex-wrap:wrap;gap:0.5rem;}
+.tag{background:var(--white);border:1px solid var(--border);color:var(--body);font-size:0.8rem;padding:0.35rem 0.85rem;border-radius:6px;font-weight:500;transition:border-color 0.2s,color 0.2s;}
+.tag:hover{border-color:var(--green);color:var(--green);}
+.status-tags{display:flex;flex-wrap:wrap;gap:0.5rem;}
+.status-tag{font-size:0.8rem;font-weight:600;padding:0.35rem 0.85rem;border-radius:6px;font-family:'Montserrat',sans-serif;}
+.st-green{background:var(--green-light);color:var(--green);border:1px solid var(--green-border);}
+.st-blue{background:#eff6ff;color:#2563eb;border:1px solid #bfdbfe;}
+.st-purple{background:#faf5ff;color:#7c3aed;border:1px solid #ddd6fe;}
 
-  .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+/* SKILLS */
+#skills{padding:6rem 0;background:var(--white);}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.skill-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.6rem;transition:border-color 0.25s,box-shadow 0.25s,transform 0.25s;}
+.skill-card:hover{border-color:var(--green);transform:translateY(-3px);box-shadow:0 8px 30px rgba(5,150,105,0.08);}
+.skill-icon{width:40px;height:40px;border-radius:9px;background:var(--green-light);display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:0.9rem;}
+.skill-card h3{font-family:'Montserrat',sans-serif;font-size:0.9rem;font-weight:700;color:var(--heading);margin-bottom:0.8rem;}
+.skill-tags{display:flex;flex-wrap:wrap;gap:0.4rem;}
+.skill-tag{background:var(--tag-bg);border:1px solid var(--border);color:var(--body);font-size:0.78rem;padding:0.28rem 0.65rem;border-radius:5px;}
 
-  /* ── HERO ── */
-  #hero {
-    min-height: 100vh;
-    display: flex; align-items: center;
-    padding: 8rem 0 4rem;
-    overflow: hidden;
-  }
-  .hero-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
-  }
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: rgba(0,229,255,0.08); border: 1px solid rgba(0,229,255,0.25);
-    border-radius: 100px; padding: 0.4rem 1rem;
-    font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 1.5rem;
-  }
-  .hero-badge span { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
+/* PROJECTS */
+#projects{padding:6rem 0;background:var(--bg-light);}
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;}
+.project-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.8rem;transition:border-color 0.25s,box-shadow 0.25s,transform 0.25s;display:flex;flex-direction:column;}
+.project-card:hover{border-color:var(--green);transform:translateY(-4px);box-shadow:0 10px 40px rgba(5,150,105,0.08);}
+.project-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:0.8rem;gap:1rem;flex-wrap:wrap;}
+.project-badge{font-family:'Montserrat',sans-serif;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.08em;font-weight:700;padding:0.28rem 0.75rem;border-radius:5px;white-space:nowrap;}
+.badge-ml{background:#ecfdf5;color:#059669;border:1px solid #a7f3d0;}
+.badge-analytics{background:#eff6ff;color:#2563eb;border:1px solid #bfdbfe;}
+.badge-sql{background:#fff7ed;color:#c2410c;border:1px solid #fed7aa;}
+.badge-r{background:#faf5ff;color:#7c3aed;border:1px solid #ddd6fe;}
+.badge-eng{background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0;}
+.live-btn{display:inline-flex;align-items:center;gap:0.35rem;background:var(--green);color:#fff;font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:700;padding:0.28rem 0.75rem;border-radius:5px;text-decoration:none;white-space:nowrap;transition:background 0.2s;letter-spacing:0.03em;}
+.live-btn:hover{background:#047857;}
+.live-dot{width:5px;height:5px;border-radius:50%;background:#6ee7b7;flex-shrink:0;}
+.project-card h3{font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:0.6rem;line-height:1.3;}
+.project-card p{color:var(--body);font-size:0.88rem;margin-bottom:1rem;line-height:1.65;flex-grow:1;}
+.project-metric{display:inline-flex;align-items:center;gap:0.4rem;background:var(--green-light);border:1px solid var(--green-border);color:var(--green);font-size:0.78rem;font-weight:700;padding:0.3rem 0.8rem;border-radius:6px;margin-bottom:1rem;font-family:'Montserrat',sans-serif;}
+.project-skills{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:auto;}
+.project-skill{background:var(--tag-bg);border:1px solid var(--border);color:var(--body);font-size:0.78rem;padding:0.28rem 0.65rem;border-radius:5px;}
 
-  .hero-name {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(2.8rem, 5vw, 4.5rem);
-    font-weight: 800; line-height: 1.05;
-    color: var(--white);
-    margin-bottom: 0.5rem;
-  }
-  .hero-name .highlight {
-    background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  }
-  .hero-title {
-    font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 600;
-    color: var(--muted); margin-bottom: 1.5rem; letter-spacing: 0.03em;
-  }
-  .hero-desc { color: var(--muted); max-width: 480px; font-size: 1rem; margin-bottom: 2.5rem; }
+/* EXPERIENCE */
+#experience{padding:6rem 0;background:var(--white);}
+.timeline{position:relative;}
+.timeline::before{content:'';position:absolute;left:0;top:6px;bottom:0;width:1px;background:var(--border);}
+.timeline-item{position:relative;padding-left:2.2rem;margin-bottom:2.8rem;}
+.timeline-item::before{content:'';position:absolute;left:-4px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--green);border:2px solid var(--white);box-shadow:0 0 0 2px var(--green-border);}
+.timeline-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.2rem;}
+.timeline-role{font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700;color:var(--heading);}
+.timeline-period{font-family:'Montserrat',sans-serif;font-size:0.74rem;font-weight:600;color:var(--green);background:var(--green-light);border:1px solid var(--green-border);padding:0.2rem 0.7rem;border-radius:100px;}
+.timeline-company{color:var(--body);font-size:0.88rem;margin-bottom:0.8rem;}
+.timeline-bullets{list-style:none;}
+.timeline-bullets li{color:var(--body);font-size:0.88rem;padding:0.25rem 0 0.25rem 1.2rem;position:relative;line-height:1.6;}
+.timeline-bullets li::before{content:'→';position:absolute;left:0;color:var(--green);font-size:0.78rem;top:0.3rem;}
+.timeline-bullets li strong{color:var(--heading);font-weight:600;}
 
-  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: var(--grad); color: #000; font-weight: 600;
-    padding: 0.85rem 2rem; border-radius: 8px; text-decoration: none;
-    font-size: 0.9rem; transition: opacity 0.2s, transform 0.2s;
-  }
-  .btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
-  .btn-outline {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    border: 1px solid var(--border); color: var(--text);
-    padding: 0.85rem 2rem; border-radius: 8px; text-decoration: none;
-    font-size: 0.9rem; transition: border-color 0.2s, color 0.2s, transform 0.2s;
-  }
-  .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+/* EDUCATION */
+#education{padding:6rem 0;background:var(--bg-light);}
+.edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.edu-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.6rem;transition:border-color 0.25s,transform 0.25s,box-shadow 0.25s;}
+.edu-card:hover{border-color:var(--green);transform:translateY(-3px);box-shadow:0 8px 24px rgba(5,150,105,0.07);}
+.edu-degree{font-family:'Montserrat',sans-serif;font-size:0.92rem;font-weight:700;color:var(--heading);margin-bottom:0.4rem;line-height:1.3;}
+.edu-school{color:var(--green);font-size:0.85rem;font-weight:500;margin-bottom:0.3rem;}
+.edu-meta{color:var(--muted);font-size:0.8rem;}
+.edu-pill{display:inline-block;margin-top:0.9rem;margin-right:0.4rem;font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:700;padding:0.25rem 0.7rem;border-radius:5px;}
+.pill-green{background:var(--green-light);color:var(--green);border:1px solid var(--green-border);}
+.pill-gold{background:#fffbeb;color:#b45309;border:1px solid #fde68a;}
 
-  /* Hero Visual */
-  .hero-visual {
-    position: relative; display: flex; justify-content: center; align-items: center;
-  }
-  .hero-orbit {
-    width: 360px; height: 360px; position: relative;
-  }
-  .orbit-ring {
-    position: absolute; border-radius: 50%;
-    border: 1px solid rgba(0,229,255,0.15);
-    top: 50%; left: 50%; transform: translate(-50%,-50%);
-    animation: spin linear infinite;
-  }
-  .orbit-ring:nth-child(1) { width: 100%; height: 100%; animation-duration: 20s; }
-  .orbit-ring:nth-child(2) { width: 72%; height: 72%; animation-duration: 15s; animation-direction: reverse; border-color: rgba(123,94,167,0.2); }
-  .orbit-ring:nth-child(3) { width: 45%; height: 45%; animation-duration: 10s; border-color: rgba(255,107,107,0.15); }
-  @keyframes spin { from{transform:translate(-50%,-50%) rotate(0deg)} to{transform:translate(-50%,-50%) rotate(360deg)} }
+/* AWARDS */
+#awards{padding:6rem 0;background:var(--white);}
+.awards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.award-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.8rem;transition:border-color 0.25s,transform 0.25s,box-shadow 0.25s;position:relative;overflow:hidden;}
+.award-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--green);opacity:0;transition:opacity 0.25s;}
+.award-card:hover{border-color:var(--green);transform:translateY(-3px);box-shadow:0 8px 30px rgba(5,150,105,0.08);}
+.award-card:hover::before{opacity:1;}
+.award-icon{font-size:1.8rem;margin-bottom:0.8rem;}
+.award-title{font-family:'Montserrat',sans-serif;font-size:0.95rem;font-weight:700;color:var(--heading);margin-bottom:0.5rem;line-height:1.3;}
+.award-org{color:var(--body);font-size:0.84rem;margin-bottom:0.8rem;line-height:1.6;}
+.award-date{font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:600;color:var(--green);background:var(--green-light);border:1px solid var(--green-border);padding:0.2rem 0.6rem;border-radius:5px;display:inline-block;}
 
-  .orbit-dot {
-    position: absolute; border-radius: 50;
-    width: 8px; height: 8px; border-radius: 50%;
-    background: var(--accent);
-    top: 0; left: 50%; transform: translateX(-50%) translateY(-50%);
-    box-shadow: 0 0 12px var(--accent);
-  }
-  .orbit-ring:nth-child(2) .orbit-dot { background: var(--accent2); box-shadow: 0 0 12px var(--accent2); }
-  .orbit-ring:nth-child(3) .orbit-dot { background: var(--accent3); box-shadow: 0 0 12px var(--accent3); }
+/* CONTACT */
+#contact{padding:6rem 0;background:var(--bg-light);}
+.contact-inner{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:3.5rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;box-shadow:0 4px 30px rgba(0,0,0,0.04);}
+.contact-links{display:flex;flex-direction:column;gap:0.8rem;}
+.contact-link{display:flex;align-items:center;gap:1rem;text-decoration:none;color:var(--heading);border:1px solid var(--border);padding:0.9rem 1.2rem;border-radius:10px;transition:border-color 0.2s,box-shadow 0.2s;background:var(--white);}
+.contact-link:hover{border-color:var(--green);box-shadow:0 4px 16px rgba(5,150,105,0.08);}
+.contact-link-icon{width:36px;height:36px;border-radius:8px;background:var(--green-light);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.contact-link-label{font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;font-weight:600;font-family:'Montserrat',sans-serif;}
+.contact-link-value{font-size:0.88rem;color:var(--heading);font-weight:500;}
 
-  .hero-center {
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-    width: 140px; height: 140px; border-radius: 50%;
-    background: var(--grad);
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    font-family: 'Syne', sans-serif; font-weight: 800;
-    font-size: 1rem; color: #000; text-align: center; line-height: 1.2;
-    box-shadow: 0 0 60px rgba(0,229,255,0.2);
-  }
-  .hero-center span { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em; }
+/* FOOTER */
+footer{text-align:center;padding:1.8rem;color:var(--muted);font-size:0.8rem;border-top:1px solid var(--border);background:var(--white);}
 
-  .hero-stats {
-    display: flex; gap: 2rem; margin-top: 2.5rem;
-  }
-  .stat { }
-  .stat-num { font-family: 'Syne', sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--white); }
-  .stat-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+/* FADE IN */
+.fade-in{}
 
-  /* ── SECTION HEADERS ── */
-  .section-label {
-    font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em;
-    color: var(--accent); font-weight: 600; margin-bottom: 0.8rem;
-  }
-  .section-title {
-    font-family: 'Syne', sans-serif; font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 800; color: var(--white); line-height: 1.1; margin-bottom: 1rem;
-  }
-  .section-desc { color: var(--muted); max-width: 560px; margin-bottom: 3rem; }
-
-  /* ── ABOUT ── */
-  #about { padding: 7rem 0; }
-  .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: start; }
-  .about-text p { color: var(--muted); margin-bottom: 1.2rem; font-size: 1rem; }
-  .about-text p strong { color: var(--text); }
-
-  .about-highlight {
-    background: var(--card); border: 1px solid var(--border);
-    border-left: 3px solid var(--accent);
-    padding: 1.5rem; border-radius: 8px; margin-top: 2rem;
-    font-style: italic; color: var(--text); font-size: 0.95rem;
-  }
-
-  .about-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; }
-  .tag {
-    background: var(--card); border: 1px solid var(--border);
-    color: var(--muted); font-size: 0.8rem; padding: 0.4rem 0.9rem;
-    border-radius: 100px; font-weight: 500;
-    transition: border-color 0.2s, color 0.2s;
-  }
-  .tag:hover { border-color: var(--accent); color: var(--accent); }
-
-  /* ── SKILLS ── */
-  #skills { padding: 7rem 0; background: var(--surface); }
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
-  .skill-card {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 12px; padding: 1.8rem;
-    transition: border-color 0.3s, transform 0.3s;
-  }
-  .skill-card:hover { border-color: var(--accent); transform: translateY(-4px); }
-  .skill-icon {
-    width: 44px; height: 44px; border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.3rem; margin-bottom: 1rem;
-  }
-  .skill-card h3 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.8rem; }
-  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-  .skill-tag {
-    background: rgba(0,0,0,0.3); border: 1px solid var(--border);
-    color: var(--muted); font-size: 0.72rem; padding: 0.25rem 0.6rem;
-    border-radius: 4px;
-  }
-
-  /* ── PROJECTS ── */
-  #projects { padding: 7rem 0; }
-  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
-  .project-card {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 16px; padding: 2rem;
-    transition: border-color 0.3s, transform 0.3s;
-    position: relative; overflow: hidden;
-  }
-  .project-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    background: var(--grad); opacity: 0; transition: opacity 0.3s;
-  }
-  .project-card:hover { border-color: rgba(0,229,255,0.3); transform: translateY(-5px); }
-  .project-card:hover::before { opacity: 1; }
-
-  .project-badge {
-    display: inline-block; font-size: 0.7rem; text-transform: uppercase;
-    letter-spacing: 0.08em; font-weight: 600; padding: 0.3rem 0.8rem;
-    border-radius: 100px; margin-bottom: 1.2rem;
-  }
-  .badge-ml { background: rgba(0,229,255,0.1); color: var(--accent); border: 1px solid rgba(0,229,255,0.2); }
-  .badge-analytics { background: rgba(123,94,167,0.1); color: #a07fd4; border: 1px solid rgba(123,94,167,0.2); }
-  .badge-sql { background: rgba(255,107,107,0.1); color: #ff8f8f; border: 1px solid rgba(255,107,107,0.2); }
-  .badge-r { background: rgba(255,196,0,0.1); color: #ffc400; border: 1px solid rgba(255,196,0,0.2); }
-
-  .project-card h3 {
-    font-family: 'Syne', sans-serif; font-size: 1.15rem; font-weight: 700;
-    color: var(--white); margin-bottom: 0.8rem;
-  }
-  .project-card p { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.2rem; line-height: 1.6; }
-  .project-metric {
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    background: rgba(0,229,255,0.06); border: 1px solid rgba(0,229,255,0.15);
-    color: var(--accent); font-size: 0.78rem; font-weight: 600;
-    padding: 0.3rem 0.8rem; border-radius: 6px; margin-bottom: 1.2rem;
-  }
-  .project-skills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-  .project-skill {
-    background: rgba(255,255,255,0.04); border: 1px solid var(--border);
-    color: var(--muted); font-size: 0.72rem; padding: 0.25rem 0.6rem; border-radius: 4px;
-  }
-
-  /* ── EXPERIENCE ── */
-  #experience { padding: 7rem 0; background: var(--surface); }
-  .timeline { position: relative; padding-left: 2rem; }
-  .timeline::before {
-    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-    width: 1px; background: var(--border);
-  }
-  .timeline-item {
-    position: relative; margin-bottom: 3rem; padding-left: 2rem;
-  }
-  .timeline-item::before {
-    content: ''; position: absolute; left: -2rem;
-    top: 0.4rem; width: 10px; height: 10px; border-radius: 50%;
-    background: var(--accent); border: 2px solid var(--bg);
-    box-shadow: 0 0 0 3px rgba(0,229,255,0.2);
-  }
-  .timeline-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.3rem; }
-  .timeline-role { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--white); }
-  .timeline-period {
-    font-size: 0.78rem; color: var(--accent); font-weight: 600;
-    background: rgba(0,229,255,0.08); padding: 0.2rem 0.7rem;
-    border-radius: 100px; border: 1px solid rgba(0,229,255,0.2);
-  }
-  .timeline-company { color: var(--muted); font-size: 0.9rem; margin-bottom: 0.8rem; font-style: italic; }
-  .timeline-bullets { list-style: none; }
-  .timeline-bullets li {
-    color: var(--muted); font-size: 0.9rem; padding: 0.3rem 0;
-    padding-left: 1.2rem; position: relative;
-  }
-  .timeline-bullets li::before {
-    content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem;
-  }
-  .timeline-bullets li strong { color: var(--text); }
-
-  /* ── EDUCATION ── */
-  #education { padding: 7rem 0; }
-  .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-  .edu-card {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 16px; padding: 2rem;
-    transition: border-color 0.3s, transform 0.3s;
-  }
-  .edu-card:hover { border-color: rgba(123,94,167,0.4); transform: translateY(-4px); }
-  .edu-degree {
-    font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700;
-    color: var(--white); margin-bottom: 0.4rem;
-  }
-  .edu-school { color: var(--accent2); font-size: 0.9rem; font-weight: 500; margin-bottom: 0.3rem; }
-  .edu-meta { color: var(--muted); font-size: 0.82rem; }
-  .edu-gpa {
-    display: inline-block; margin-top: 1rem;
-    background: rgba(123,94,167,0.1); border: 1px solid rgba(123,94,167,0.3);
-    color: #a07fd4; font-size: 0.78rem; font-weight: 600;
-    padding: 0.3rem 0.8rem; border-radius: 6px;
-  }
-  .edu-badge {
-    display: inline-block; margin-top: 0.5rem; margin-left: 0.5rem;
-    background: rgba(255,196,0,0.1); border: 1px solid rgba(255,196,0,0.3);
-    color: #ffc400; font-size: 0.72rem; font-weight: 600;
-    padding: 0.3rem 0.8rem; border-radius: 6px;
-  }
-
-  /* ── CONTACT ── */
-  #contact { padding: 7rem 0; background: var(--surface); }
-  .contact-inner {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 24px; padding: 4rem;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
-    position: relative; overflow: hidden;
-  }
-  .contact-inner::before {
-    content: ''; position: absolute;
-    top: -60px; right: -60px; width: 200px; height: 200px;
-    border-radius: 50%; background: var(--grad); opacity: 0.07; filter: blur(40px);
-  }
-  .contact-links { display: flex; flex-direction: column; gap: 1rem; }
-  .contact-link {
-    display: flex; align-items: center; gap: 1rem;
-    text-decoration: none; color: var(--text);
-    background: rgba(255,255,255,0.03); border: 1px solid var(--border);
-    padding: 1rem 1.5rem; border-radius: 10px;
-    transition: border-color 0.2s, background 0.2s;
-  }
-  .contact-link:hover { border-color: var(--accent); background: rgba(0,229,255,0.04); }
-  .contact-link-icon { font-size: 1.2rem; }
-  .contact-link-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
-  .contact-link-value { font-size: 0.9rem; color: var(--text); font-weight: 500; }
-
-  /* ── FOOTER ── */
-  footer {
-    text-align: center; padding: 2rem;
-    color: var(--muted); font-size: 0.8rem;
-    border-top: 1px solid var(--border);
-  }
-
-  /* ── ANIMATIONS (handled by JS inline styles) ── */
-  .fade-in { }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links { display: none; }
-    .hero-grid { grid-template-columns: 1fr; }
-    .hero-visual { display: none; }
-    .about-grid { grid-template-columns: 1fr; }
-    .contact-inner { grid-template-columns: 1fr; padding: 2rem; }
-  }
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:0 1.5rem;}
+  .nav-links{display:none;}
+  .hero-inner{grid-template-columns:1fr;}
+  .hero-visual{display:none;}
+  .about-grid{grid-template-columns:1fr;gap:2rem;}
+  .skills-grid{grid-template-columns:repeat(2,1fr);}
+  .projects-grid{grid-template-columns:1fr;}
+  .edu-grid{grid-template-columns:1fr;}
+  .awards-grid{grid-template-columns:1fr;}
+  .contact-inner{grid-template-columns:1fr;padding:2rem;gap:2rem;}
+}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-logo">KKV</a>
+  <a href="#hero" class="nav-logo">KKV<span>.</span></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#education">Education</a></li>
+    <li><a href="#awards">Awards</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -392,43 +207,39 @@
 <!-- HERO -->
 <section id="hero">
   <div class="container">
-    <div class="hero-grid">
-      <div class="hero-content">
-        <div class="hero-badge"><span></span> Open to Data & ML Roles</div>
-        <h1 class="hero-name">Kaushlendra<br/><span class="highlight">Kumar Verma</span></h1>
-        <p class="hero-title">Data & Applied ML Engineer · MS Business Analytics · GPA 4.0</p>
-        <p class="hero-desc">
-          Bridging 9+ years of engineering precision with modern machine learning — transforming complex datasets into decisions that move infrastructure, finance, and operations forward.
-        </p>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge"><span></span> From Highways to Algorithms </div>
+        <h1 class="hero-name">Kaushlendra<br/>Kumar <span class="green">Verma</span></h1>
+        <p class="hero-role">Data &amp; Applied ML Engineer &nbsp;&middot;&nbsp; MS Business Analytics </p>
+        <p class="hero-desc">Bridging 9+ years of engineering expertise with modern machine learning &mdash; turning complex datasets into decisions that drive real business outcomes.</p>
         <div class="hero-ctas">
-          <a href="#projects" class="btn-primary">↓ View My Work</a>
+          <a href="#projects" class="btn-primary">View My Work</a>
           <a href="#contact" class="btn-outline">Get In Touch</a>
         </div>
         <div class="hero-stats">
-          <div class="stat">
-            <div class="stat-num">9+</div>
-            <div class="stat-label">Years Exp.</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">4.0</div>
-            <div class="stat-label">MS GPA</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">6+</div>
-            <div class="stat-label">ML Projects</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">1st</div>
-            <div class="stat-label">Business Analytics Competition</div>
-          </div>
+          <div><div class="stat-num">9+</div><div class="stat-label">Years Experience</div></div>
+          <div><div class="stat-num">4.0</div><div class="stat-label">MS GPA</div></div>
+          <div><div class="stat-num">6+</div><div class="stat-label">ML Projects</div></div>
+          <div><div class="stat-num">1st</div><div class="stat-label">Business Analytics Competition</div></div>
         </div>
       </div>
       <div class="hero-visual">
-        <div class="hero-orbit">
-          <div class="orbit-ring"><div class="orbit-dot"></div></div>
-          <div class="orbit-ring"><div class="orbit-dot"></div></div>
-          <div class="orbit-ring"><div class="orbit-dot"></div></div>
-          <div class="hero-center">KKV<br/><span>ML · Data · Analytics</span></div>
+        <div class="skill-viz" id="skillViz">
+          <div class="viz-ring viz-ring-1"></div>
+          <div class="viz-ring viz-ring-2"></div>
+          <div class="viz-center"><span class="viz-center-text">KKV</span></div>
+          <!-- Inner ring nodes -->
+          <div class="viz-node" data-ring="1" data-idx="0"><div class="viz-node-icon">🐍</div><span class="viz-node-label">Python</span></div>
+          <div class="viz-node" data-ring="1" data-idx="1"><div class="viz-node-icon">🗄️</div><span class="viz-node-label">SQL</span></div>
+          <div class="viz-node" data-ring="1" data-idx="2"><div class="viz-node-icon">🧠</div><span class="viz-node-label">ML</span></div>
+          <div class="viz-node" data-ring="1" data-idx="3"><div class="viz-node-icon">📊</div><span class="viz-node-label">R</span></div>
+          <!-- Outer ring nodes -->
+          <div class="viz-node" data-ring="2" data-idx="0"><div class="viz-node-icon">⚡</div><span class="viz-node-label">TensorFlow</span></div>
+          <div class="viz-node" data-ring="2" data-idx="1"><div class="viz-node-icon">📈</div><span class="viz-node-label">Tableau</span></div>
+          <div class="viz-node" data-ring="2" data-idx="2"><div class="viz-node-icon">🎯</div><span class="viz-node-label">XGBoost</span></div>
+          <div class="viz-node" data-ring="2" data-idx="3"><div class="viz-node-icon">🛣️</div><span class="viz-node-label">Highway Eng</span></div>
+          <div class="viz-node" data-ring="2" data-idx="4"><div class="viz-node-icon">🚦</div><span class="viz-node-label">Traffic Eng</span></div>
         </div>
       </div>
     </div>
@@ -439,19 +250,17 @@
 <section id="about">
   <div class="container">
     <div class="about-grid">
-      <div class="about-text fade-in">
+      <div class="fade-in">
         <p class="section-label">About Me</p>
-        <h2 class="section-title">Engineering Meets<br/>Machine Intelligence</h2>
-        <p>I'm an aspiring Data & Applied ML Engineer completing my <strong>MS in Business Analytics at the University of Arizona (4.0 GPA)</strong>, with nearly a decade of experience leading high-stakes infrastructure projects across India.</p>
-        <p>My background in highway design gave me an engineer's obsession with precision and efficiency — now I apply that same mindset to <strong>predictive modeling, deep learning, and data-driven decision systems</strong>.</p>
-        <p>I thrive at the intersection of technical depth and business impact — translating raw data into decisions that matter, whether that's uncovering credit risk patterns, optimizing supply chains, or surfacing fairness gaps in healthcare ML models.</p>
-        <div class="about-highlight">
-          "I bring engineering precision, analytical thinking, and business acumen to data-driven problem-solving — finding patterns that reveal meaningful insights."
-        </div>
+        <h2 class="section-title">Engineering Meets Machine Intelligence</h2>
+        <p>I am completing my <strong>MS in Business Analytics at the University of Arizona (GPA 4.0)</strong>, building on nearly a decade of leading infrastructure projects across India.</p>
+        <p>My highway design background trained me to think in systems &mdash; precise inputs, structured logic, measurable outputs. I now apply that same discipline to <strong>predictive modeling, deep learning, and data-driven decision systems</strong>.</p>
+        <p>I thrive at the intersection of technical depth and business impact &mdash; translating raw data into decisions that matter, whether uncovering credit risk patterns, optimizing supply chains, or surfacing fairness gaps in healthcare ML models.</p>
+        <div class="about-quote">"I bring engineering precision, analytical thinking, and business acumen to data-driven problem-solving &mdash; finding patterns that reveal meaningful insights."</div>
       </div>
-      <div class="fade-in" style="animation-delay:0.2s">
-        <p class="section-label" style="margin-top:3.5rem">Specialties</p>
-        <div class="about-tags" style="margin-bottom:2rem">
+      <div class="about-right fade-in">
+        <div class="tag-group-label">Core Skills</div>
+        <div class="tags">
           <span class="tag">Machine Learning</span>
           <span class="tag">Deep Learning</span>
           <span class="tag">Python</span>
@@ -463,17 +272,15 @@
           <span class="tag">Keras</span>
           <span class="tag">Scikit-learn</span>
           <span class="tag">Data Visualization</span>
-          <span class="tag">Forecasting</span>
           <span class="tag">Statistical Analysis</span>
-          <span class="tag">Business Analytics</span>
           <span class="tag">ETL Pipelines</span>
           <span class="tag">Feature Engineering</span>
         </div>
-        <p class="section-label">Currently</p>
-        <div class="about-tags">
-          <span class="tag" style="border-color:rgba(0,229,255,0.3);color:var(--accent)">📍 Chandler, AZ</span>
-          <span class="tag" style="border-color:rgba(0,229,255,0.3);color:var(--accent)">🎓 UofA · May 2026</span>
-          <span class="tag" style="border-color:rgba(123,94,167,0.3);color:#a07fd4">🟢 Open to Work</span>
+        <div class="tag-group-label">Currently</div>
+        <div class="status-tags">
+          <span class="status-tag st-green">Chandler, AZ</span>
+          <span class="status-tag st-blue">UofA &middot; May 2026</span>
+          <span class="status-tag st-purple">Open to Work</span>
         </div>
       </div>
     </div>
@@ -485,59 +292,50 @@
   <div class="container">
     <div class="fade-in">
       <p class="section-label">Technical Toolkit</p>
-      <h2 class="section-title">Skills & Technologies</h2>
-      <p class="section-desc">A full-stack data science toolkit — from raw data wrangling to production ML model deployment.</p>
+      <h2 class="section-title">Skills &amp; Technologies</h2>
+      <p class="section-desc">A full-stack data science toolkit &mdash; from raw data wrangling to production ML model deployment.</p>
     </div>
     <div class="skills-grid">
       <div class="skill-card fade-in">
-        <div class="skill-icon" style="background:rgba(0,229,255,0.1)">🐍</div>
-        <h3>Programming & Data</h3>
+        <div class="skill-icon">&#128013;</div>
+        <h3>Programming &amp; Data</h3>
         <div class="skill-tags">
-          <span class="skill-tag">Python</span><span class="skill-tag">SQL</span>
-          <span class="skill-tag">R</span><span class="skill-tag">GitHub</span>
-          <span class="skill-tag">Excel</span>
+          <span class="skill-tag">Python</span><span class="skill-tag">SQL</span><span class="skill-tag">R</span><span class="skill-tag">GitHub</span><span class="skill-tag">Excel</span>
         </div>
       </div>
-      <div class="skill-card fade-in" style="animation-delay:0.1s">
-        <div class="skill-icon" style="background:rgba(123,94,167,0.1)">🧠</div>
-        <h3>ML & Deep Learning</h3>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">&#129504;</div>
+        <h3>ML &amp; Deep Learning</h3>
         <div class="skill-tags">
-          <span class="skill-tag">TensorFlow</span><span class="skill-tag">Keras</span>
-          <span class="skill-tag">Scikit-learn</span><span class="skill-tag">CNN</span>
-          <span class="skill-tag">Transfer Learning</span>
+          <span class="skill-tag">TensorFlow</span><span class="skill-tag">Keras</span><span class="skill-tag">Scikit-learn</span><span class="skill-tag">XGBoost</span><span class="skill-tag">CNN</span><span class="skill-tag">Transfer Learning</span>
         </div>
       </div>
-      <div class="skill-card fade-in" style="animation-delay:0.2s">
-        <div class="skill-icon" style="background:rgba(255,107,107,0.1)">📊</div>
-        <h3>Visualization & BI</h3>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">&#128202;</div>
+        <h3>Visualization &amp; BI</h3>
         <div class="skill-tags">
-          <span class="skill-tag">Tableau</span><span class="skill-tag">Power BI</span>
-          <span class="skill-tag">Matplotlib</span><span class="skill-tag">Storytelling</span>
+          <span class="skill-tag">Tableau</span><span class="skill-tag">Power BI</span><span class="skill-tag">Matplotlib</span><span class="skill-tag">Seaborn</span>
         </div>
       </div>
-      <div class="skill-card fade-in" style="animation-delay:0.1s">
-        <div class="skill-icon" style="background:rgba(255,196,0,0.1)">📈</div>
-        <h3>Statistics & Modeling</h3>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">&#128200;</div>
+        <h3>Statistics &amp; Modeling</h3>
         <div class="skill-tags">
-          <span class="skill-tag">Hypothesis Testing</span><span class="skill-tag">Regression</span>
-          <span class="skill-tag">Classification</span><span class="skill-tag">Clustering</span>
-          <span class="skill-tag">Forecasting</span>
+          <span class="skill-tag">Hypothesis Testing</span><span class="skill-tag">Regression</span><span class="skill-tag">Classification</span><span class="skill-tag">Clustering</span><span class="skill-tag">Forecasting</span>
         </div>
       </div>
-      <div class="skill-card fade-in" style="animation-delay:0.2s">
-        <div class="skill-icon" style="background:rgba(0,229,255,0.1)">⚙️</div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">&#9881;&#65039;</div>
         <h3>Python Libraries</h3>
         <div class="skill-tags">
-          <span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span>
-          <span class="skill-tag">Matplotlib</span><span class="skill-tag">dplyr</span>
+          <span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span><span class="skill-tag">SMOTE</span><span class="skill-tag">GridSearchCV</span><span class="skill-tag">dplyr</span>
         </div>
       </div>
-      <div class="skill-card fade-in" style="animation-delay:0.3s">
-        <div class="skill-icon" style="background:rgba(123,94,167,0.1)">🛠️</div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">&#128295;</div>
         <h3>Data Engineering</h3>
         <div class="skill-tags">
-          <span class="skill-tag">ETL Pipelines</span><span class="skill-tag">Data Cleaning</span>
-          <span class="skill-tag">Feature Engineering</span><span class="skill-tag">Data Modeling</span>
+          <span class="skill-tag">ETL Pipelines</span><span class="skill-tag">Data Cleaning</span><span class="skill-tag">Feature Engineering</span><span class="skill-tag">Data Modeling</span>
         </div>
       </div>
     </div>
@@ -550,79 +348,106 @@
     <div class="fade-in">
       <p class="section-label">Portfolio</p>
       <h2 class="section-title">Featured Projects</h2>
-      <p class="section-desc">Academic and applied ML projects solving real business problems with measurable outcomes.</p>
+      <p class="section-desc">Applied ML and analytics projects solving real business problems &mdash; from healthcare to infrastructure.</p>
     </div>
     <div class="projects-grid">
 
       <div class="project-card fade-in">
-        <span class="project-badge badge-ml">Deep Learning · Computer Vision</span>
+        <div class="project-top">
+          <span class="project-badge badge-ml">Deep Learning &middot; Healthcare</span>
+          <a href="https://oud-risk-prediction.streamlit.app/" target="_blank" class="live-btn"><span class="live-dot"></span> Live App</a>
+        </div>
+        <h3>Medications for Opioid Use Disorder &mdash; ML Pipeline</h3>
+        <p>Built an end-to-end ML pipeline on 95K+ real-world opioid treatment records. Trained and tuned four models &mdash; Logistic Regression, Decision Tree, XGBoost, and Neural Network &mdash; with GridSearchCV hyperparameter optimization. Includes full preprocessing with SMOTE class balancing and demographic fairness analysis across race, gender, age, and state subgroups.</p>
+        <div class="project-metric">Best AUC-ROC: 0.7247 &nbsp;&middot;&nbsp; 95K+ Records</div>
+        <div class="project-skills">
+          <span class="project-skill">Python</span><span class="project-skill">Scikit-learn</span><span class="project-skill">TensorFlow/Keras</span><span class="project-skill">XGBoost</span><span class="project-skill">SMOTE</span><span class="project-skill">GridSearchCV</span><span class="project-skill">Fairness Analysis</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-top">
+          <span class="project-badge badge-ml">Deep Learning &middot; Computer Vision</span>
+        </div>
         <h3>AI-Powered Coin Classification System</h3>
-        <p>Built an automated classification system achieving 90%+ accuracy across 60+ coin types using CNN and transfer learning (MobileNetV2). Applied data augmentation to train robust models with only 10–15 images per class.</p>
-        <div class="project-metric">⚡ 96% reduction in verification time (10 min → 20 sec)</div>
+        <p>Built an automated classification system covering 60+ coin types using CNN and transfer learning (MobileNetV2). Applied data augmentation to train robust models with only 10&ndash;15 images per class. Reduced coin verification time from 10 minutes to 20 seconds.</p>
+        <div class="project-metric">96% reduction in verification time</div>
         <div class="project-skills">
-          <span class="project-skill">TensorFlow</span><span class="project-skill">Keras</span>
-          <span class="project-skill">MobileNetV2</span><span class="project-skill">Transfer Learning</span>
-          <span class="project-skill">CNN</span><span class="project-skill">Data Augmentation</span>
+          <span class="project-skill">TensorFlow</span><span class="project-skill">Keras</span><span class="project-skill">MobileNetV2</span><span class="project-skill">Transfer Learning</span><span class="project-skill">CNN</span><span class="project-skill">Data Augmentation</span>
         </div>
       </div>
 
-      <div class="project-card fade-in" style="animation-delay:0.1s">
-        <span class="project-badge badge-analytics">🏆 1st Place · Analytics</span>
+      <div class="project-card fade-in">
+        <div class="project-top">
+          <span class="project-badge badge-analytics">ML &middot; Public Health</span>
+          <a href="https://vaccine-predictor.streamlit.app/" target="_blank" class="live-btn"><span class="live-dot"></span> Live App</a>
+        </div>
+        <h3>H1N1 &amp; Seasonal Flu Vaccination Prediction</h3>
+        <p>Built a classification pipeline on 26K survey records to predict vaccination uptake using behavioral, demographic, and attitudinal features. Applied SMOTE for class imbalance and ran fairness analysis across demographic subgroups &mdash; with findings directly applicable to targeted public health outreach.</p>
+        <div class="project-metric">ROC AUC: ~0.83 &nbsp;&middot;&nbsp; 26K Records</div>
+        <div class="project-skills">
+          <span class="project-skill">Python</span><span class="project-skill">Scikit-learn</span><span class="project-skill">SMOTE</span><span class="project-skill">Logistic Regression</span><span class="project-skill">Random Forest</span><span class="project-skill">Fairness Analysis</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-top">
+          <span class="project-badge badge-analytics">Analytics &middot; 1st Place</span>
+        </div>
         <h3>AmEx Credit Risk Analytics Competition</h3>
-        <p>Won 1st place in the American Express Business Analytics Competition. Executed end-to-end credit risk and customer segmentation on 36,000+ client applications, identifying property ownership as a stronger repayment predictor than income.</p>
-        <div class="project-metric">🏆 1st Place — University-level Competition</div>
+        <p>Won 1st place at the American Express Business Analytics Competition. Analyzed credit risk and customer segmentation across 36K+ client applications using Tableau. Found that property ownership and spending behavior are stronger repayment predictors than income or employment status.</p>
+        <div class="project-metric">1st Place &nbsp;&middot;&nbsp; 36K+ Applications</div>
         <div class="project-skills">
-          <span class="project-skill">Tableau</span><span class="project-skill">EDA</span>
-          <span class="project-skill">Customer Segmentation</span><span class="project-skill">Risk Analysis</span>
+          <span class="project-skill">Tableau</span><span class="project-skill">EDA</span><span class="project-skill">Customer Segmentation</span><span class="project-skill">Risk Analysis</span>
         </div>
       </div>
 
-      <div class="project-card fade-in" style="animation-delay:0.2s">
-        <span class="project-badge badge-sql">SQL · Database</span>
-        <h3>Library Management System</h3>
-        <p>Designed and implemented a relational database with 6 normalized tables, enforcing primary/foreign key constraints. Built advanced SQL queries using JOINs, CTAS, and Window Functions to generate branch-level revenue and performance reports.</p>
-        <div class="project-metric">📊 6 Normalized Tables · Business-level Reporting</div>
-        <div class="project-skills">
-          <span class="project-skill">SQL</span><span class="project-skill">Relational Modeling</span>
-          <span class="project-skill">Window Functions</span><span class="project-skill">CTAS</span>
-          <span class="project-skill">Business Reporting</span>
+      <div class="project-card fade-in">
+        <div class="project-top">
+          <span class="project-badge badge-r">R &middot; Regression &middot; Policy</span>
         </div>
-      </div>
-
-      <div class="project-card fade-in" style="animation-delay:0.2s">
-        <span class="project-badge badge-ml">Deep Learning · Healthcare</span>
-        <h3>Medications for Opioid Use Disorder — ML Pipeline</h3>
-        <p>Developed an end-to-end ML pipeline on 95K+ real-world opioid treatment records. Trained and tuned four classification models (Logistic Regression, Decision Tree, XGBoost, Neural Network) with GridSearchCV hyperparameter optimization. Conducted demographic fairness analysis across race, gender, age, and state subgroups to surface model performance disparities.</p>
-        <div class="project-metric">📈 Best AUC-ROC: 0.7247 · 95K+ Records</div>
-        <div class="project-skills">
-          <span class="project-skill">Python</span><span class="project-skill">Scikit-learn</span>
-          <span class="project-skill">TensorFlow/Keras</span><span class="project-skill">XGBoost</span>
-          <span class="project-skill">SMOTE</span><span class="project-skill">GridSearchCV</span>
-          <span class="project-skill">Fairness Analysis</span>
-        </div>
-      </div>
-
-      <div class="project-card fade-in" style="animation-delay:0.3s">
-        <span class="project-badge badge-r">R · Regression · Policy</span>
         <h3>Determinants of Passport Cost Across Countries</h3>
-        <p>Built an explanatory regression model using data from 125 countries to identify economic and governance drivers of passport pricing. Applied multicollinearity diagnostics, BIC & Best Subset model selection. Demonstrated that GDP per capita and political stability are primary determinants — with implications for pricing fairness and policy design.</p>
-        <div class="project-metric">🌍 125 Countries · Policy-level Insights</div>
+        <p>Built a regression model using data from 125 countries to identify economic and governance drivers of passport pricing. Applied BIC and Best Subset model selection with multicollinearity diagnostics. GDP per capita and political stability emerged as the primary determinants &mdash; with clear implications for pricing fairness and policy design.</p>
+        <div class="project-metric">125 Countries &nbsp;&middot;&nbsp; Policy-level Insights</div>
         <div class="project-skills">
-          <span class="project-skill">R</span><span class="project-skill">Regression Modeling</span>
-          <span class="project-skill">VIF / ANOVA</span><span class="project-skill">BIC</span>
-          <span class="project-skill">Feature Selection</span><span class="project-skill">EDA</span>
+          <span class="project-skill">R</span><span class="project-skill">Regression Modeling</span><span class="project-skill">VIF / ANOVA</span><span class="project-skill">BIC</span><span class="project-skill">Feature Selection</span><span class="project-skill">EDA</span>
         </div>
       </div>
 
-      <div class="project-card fade-in" style="animation-delay:0.1s">
-        <span class="project-badge badge-r">R · Classification</span>
+      <div class="project-card fade-in">
+        <div class="project-top">
+          <span class="project-badge badge-r">R &middot; Classification</span>
+        </div>
         <h3>FMCG Distribution Channel Optimizer</h3>
-        <p>Built an R-based ML model to predict optimal distribution channels for Pepsi across Andhra Pradesh districts. Compared Logistic Regression, Decision Tree, Naïve Bayes, and KNN to identify key business drivers.</p>
-        <div class="project-metric">✅ 97.4% Model Accuracy</div>
+        <p>Built an ML model in R to predict the optimal distribution channel for Pepsi across Andhra Pradesh districts. Compared Logistic Regression, Decision Tree, Naive Bayes, and KNN. Identified market type, revenue potential, and vehicle availability as the key business drivers.</p>
+        <div class="project-metric">97.4% Model Accuracy</div>
         <div class="project-skills">
-          <span class="project-skill">R</span><span class="project-skill">Logistic Regression</span>
-          <span class="project-skill">Decision Tree</span><span class="project-skill">KNN</span>
-          <span class="project-skill">Naïve Bayes</span><span class="project-skill">dplyr</span>
+          <span class="project-skill">R</span><span class="project-skill">Logistic Regression</span><span class="project-skill">Decision Tree</span><span class="project-skill">KNN</span><span class="project-skill">Naive Bayes</span><span class="project-skill">dplyr</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-top">
+          <span class="project-badge badge-sql">SQL &middot; Database</span>
+        </div>
+        <h3>Library Management System</h3>
+        <p>Designed a relational database with 6 normalized tables to manage books, members, employees, and transactions. Built advanced SQL queries using JOINs, CTAS, and Window Functions to generate branch-level revenue reports and identify top-performing staff.</p>
+        <div class="project-metric">6 Normalized Tables &nbsp;&middot;&nbsp; Business Reporting</div>
+        <div class="project-skills">
+          <span class="project-skill">SQL</span><span class="project-skill">Relational Modeling</span><span class="project-skill">Window Functions</span><span class="project-skill">CTAS</span><span class="project-skill">Business Reporting</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-top">
+          <span class="project-badge badge-eng">Engineering &middot; Rule Engine</span>
+          <a href="https://irc-compliance-checker.streamlit.app/" target="_blank" class="live-btn"><span class="live-dot"></span> Live App</a>
+        </div>
+        <h3>IRC Geometric Design Compliance Checker</h3>
+        <p>A rule-based compliance engine covering 432+ parameters across three IRC highway design standards. Accepts design inputs, flags HARD FAILs and ADVISORYs instantly, and generates downloadable HTML and Excel audit reports. Directly usable by highway engineers on real 4-lane highway projects.</p>
+        <div class="project-metric">432+ Parameters &nbsp;&middot;&nbsp; 3 IRC Standards</div>
+        <div class="project-skills">
+          <span class="project-skill">Python</span><span class="project-skill">Streamlit</span><span class="project-skill">Pandas</span><span class="project-skill">openpyxl</span><span class="project-skill">Rule Engine Design</span>
         </div>
       </div>
 
@@ -636,56 +461,56 @@
     <div class="fade-in">
       <p class="section-label">Work History</p>
       <h2 class="section-title">Professional Experience</h2>
-      <p class="section-desc">9+ years of leading large-scale engineering projects, applied data analysis, and stakeholder delivery.</p>
+      <p class="section-desc">9+ years leading large-scale engineering projects with a strong track record of data-driven decision making and team delivery.</p>
     </div>
     <div class="timeline">
       <div class="timeline-item fade-in">
         <div class="timeline-header">
           <span class="timeline-role">Deputy Manager</span>
-          <span class="timeline-period">Apr 2023 – Jul 2025</span>
+          <span class="timeline-period">Apr 2023 &ndash; Jul 2025</span>
         </div>
-        <div class="timeline-company">G R Infraprojects Limited · Gurugram, India</div>
+        <div class="timeline-company">G R Infraprojects Limited &nbsp;&middot;&nbsp; Gurugram, India</div>
         <ul class="timeline-bullets">
-          <li>Led geometric design for <strong>100+ km of highway projects</strong>, optimizing layouts for constructability and execution efficiency.</li>
-          <li>Optimized earthwork estimation by <strong>15–20%</strong>, reducing material and cost variances through 3D modelling.</li>
-          <li>Supported data-driven bid pricing decisions, <strong>reducing project costs by 5–10%</strong> through analytical evaluation of design scenarios.</li>
-          <li>Trained 2 junior engineers on highway design standards and CAD software, accelerating onboarding.</li>
+          <li>Led geometric design for <strong>100+ km of highway projects</strong>, optimizing layouts for constructability and cost efficiency.</li>
+          <li>Reduced earthwork estimation variances by <strong>15&ndash;20%</strong> through 3D modelling and volume computation.</li>
+          <li>Supported bid pricing decisions that <strong>cut project costs by 5&ndash;10%</strong> through scenario-based analytical evaluation.</li>
+          <li>Trained 2 junior engineers on highway design standards and CAD tools.</li>
         </ul>
       </div>
-      <div class="timeline-item fade-in" style="animation-delay:0.1s">
+      <div class="timeline-item fade-in">
         <div class="timeline-header">
           <span class="timeline-role">Senior Manager, Highways</span>
-          <span class="timeline-period">Dec 2020 – Dec 2022</span>
+          <span class="timeline-period">Dec 2020 &ndash; Dec 2022</span>
         </div>
-        <div class="timeline-company">Intercontinental Consultants and Technocrats (ICT) · New Delhi, India</div>
+        <div class="timeline-company">Intercontinental Consultants and Technocrats (ICT) &nbsp;&middot;&nbsp; New Delhi, India</div>
         <ul class="timeline-bullets">
-          <li>Led <strong>7+ concurrent DPR projects</strong> with ₹100Cr+ cumulative value, ensuring on-time delivery.</li>
-          <li>Reduced inter-departmental delays and rework by <strong>10–15%</strong> through structured reviews and communication checkpoints.</li>
-          <li>Represented the organization in client meetings, translating engineering inputs into decision-oriented insights.</li>
-          <li>Managed and mentored <strong>4–5 engineers</strong> and domain leads, aligning outputs with quality benchmarks.</li>
+          <li>Managed <strong>7+ concurrent DPR projects</strong> with Rs 100Cr+ cumulative value, ensuring on-time delivery.</li>
+          <li>Reduced inter-departmental delays by <strong>10&ndash;15%</strong> through structured review and communication workflows.</li>
+          <li>Represented the firm in client meetings, translating complex engineering inputs into clear decision-ready insights.</li>
+          <li>Managed and mentored <strong>4&ndash;5 engineers</strong> across design, traffic, pavement, and costing teams.</li>
         </ul>
       </div>
-      <div class="timeline-item fade-in" style="animation-delay:0.2s">
+      <div class="timeline-item fade-in">
         <div class="timeline-header">
           <span class="timeline-role">Highway Engineer</span>
-          <span class="timeline-period">Oct 2019 – Dec 2020</span>
+          <span class="timeline-period">Oct 2019 &ndash; Dec 2020</span>
         </div>
-        <div class="timeline-company">WSP in India · Noida, India</div>
+        <div class="timeline-company">WSP in India &nbsp;&middot;&nbsp; Noida, India</div>
         <ul class="timeline-bullets">
-          <li>Delivered compliance-focused 2D design checks for junction layouts, swept path analyses, and visibility assessments.</li>
-          <li>Assisted UK team with budget tracking and project controls using Excel-based analytical tools.</li>
-          <li>Gained exposure to DMRB international design standards and multinational project workflows.</li>
+          <li>Delivered compliance-focused design checks for junction layouts, swept path analyses, and visibility assessments.</li>
+          <li>Assisted the UK team with budget tracking and project controls using Excel-based tools.</li>
+          <li>Gained exposure to DMRB international standards and multinational project workflows.</li>
         </ul>
       </div>
-      <div class="timeline-item fade-in" style="animation-delay:0.3s">
+      <div class="timeline-item fade-in">
         <div class="timeline-header">
-          <span class="timeline-role">Manager & Pavement Design Engineer</span>
-          <span class="timeline-period">Jun 2016 – Oct 2019</span>
+          <span class="timeline-role">Manager &amp; Pavement Design Engineer</span>
+          <span class="timeline-period">Jun 2016 &ndash; Oct 2019</span>
         </div>
-        <div class="timeline-company">Intercontinental Consultants and Technocrats (ICT) · New Delhi, India</div>
+        <div class="timeline-company">Intercontinental Consultants and Technocrats (ICT) &nbsp;&middot;&nbsp; New Delhi, India</div>
         <ul class="timeline-bullets">
           <li>Specialized in flexible, rigid, and composite pavement design with overlay and back-calculation analysis.</li>
-          <li>Led greenfield and brownfield highway design, interchange, and grade-separated structure projects.</li>
+          <li>Led greenfield and brownfield highway design including interchange and grade-separated structure projects.</li>
         </ul>
       </div>
     </div>
@@ -701,22 +526,56 @@
     </div>
     <div class="edu-grid">
       <div class="edu-card fade-in">
-        <div class="edu-degree">Master of Science — Business Analytics</div>
+        <div class="edu-degree">Master of Science &mdash; Business Analytics</div>
         <div class="edu-school">University of Arizona</div>
-        <div class="edu-meta">Oct 2024 – May 2026 · Chandler, AZ, USA</div>
-        <div><span class="edu-gpa">GPA: 4.0 / 4.0</span></div>
+        <div class="edu-meta">Oct 2024 &ndash; May 2026 &nbsp;&middot;&nbsp; Chandler, AZ</div>
+        <div><span class="edu-pill pill-green">GPA: 4.0 / 4.0</span></div>
       </div>
-      <div class="edu-card fade-in" style="animation-delay:0.1s">
-        <div class="edu-degree">Master's Degree — Transportation Engineering & Planning</div>
-        <div class="edu-school">Sardar Vallabhbhai National Institute of Technology, Surat</div>
-        <div class="edu-meta">Aug 2014 – Jun 2016 · India</div>
-        <div><span class="edu-gpa">GPA: 9.46 / 10</span><span class="edu-badge">🥈 Silver Medalist</span></div>
+      <div class="edu-card fade-in">
+        <div class="edu-degree">Master's Degree &mdash; Transportation Engineering &amp; Planning</div>
+        <div class="edu-school">SVNIT Surat, India</div>
+        <div class="edu-meta">Aug 2014 &ndash; Jun 2016</div>
+        <div>
+          <span class="edu-pill pill-green">GPA: 9.46 / 10</span>
+          <span class="edu-pill pill-gold">Silver Medalist</span>
+        </div>
       </div>
-      <div class="edu-card fade-in" style="animation-delay:0.2s">
-        <div class="edu-degree">Bachelor of Technology — Civil Engineering</div>
-        <div class="edu-school">Galgotias College of Engineering and Technology</div>
-        <div class="edu-meta">Sep 2010 – Jul 2014 · Greater Noida, India</div>
-        <div><span class="edu-gpa">74.96 / 100</span></div>
+      <div class="edu-card fade-in">
+        <div class="edu-degree">Bachelor of Technology &mdash; Civil Engineering</div>
+        <div class="edu-school">Galgotias College of Engineering, Greater Noida</div>
+        <div class="edu-meta">Sep 2010 &ndash; Jul 2014</div>
+        <div><span class="edu-pill pill-green">74.96 / 100</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards">
+  <div class="container">
+    <div class="fade-in">
+      <p class="section-label">Recognition</p>
+      <h2 class="section-title">Awards &amp; Achievements</h2>
+      <p class="section-desc">Recognized for analytical excellence and strategic problem-solving across academic and professional settings.</p>
+    </div>
+    <div class="awards-grid">
+      <div class="award-card fade-in">
+        <div class="award-icon">&#127942;</div>
+        <div class="award-title">1st Place &mdash; Arizona Statewide Business Case Competition</div>
+        <div class="award-org">Graduate Division Winner &nbsp;&middot;&nbsp; W. A. Franke College of Business, NAU. Developed a cooperative-led supply chain strategy for Navajo-Churro wool producers to access premium markets, grounded in the Principled Innovation framework.</div>
+        <span class="award-date">March 2026</span>
+      </div>
+      <div class="award-card fade-in">
+        <div class="award-icon">&#127942;</div>
+        <div class="award-title">1st Place &mdash; American Express Business Analytics Competition</div>
+        <div class="award-org">University of Arizona. Led end-to-end credit risk and customer segmentation analysis on 36K+ client applications using Tableau, identifying key drivers of repayment risk beyond conventional income metrics.</div>
+        <span class="award-date">December 2025</span>
+      </div>
+      <div class="award-card fade-in">
+        <div class="award-icon">&#129352;</div>
+        <div class="award-title">Dr. B.K. Katti Silver Medal Award</div>
+        <div class="award-org">Sardar Vallabhbhai National Institute of Technology, Surat. Awarded for academic excellence &mdash; graduating as Silver Medalist in the M.Tech Transportation Engineering program with a GPA of 9.46/10.</div>
+        <span class="award-date">January 2017</span>
       </div>
     </div>
   </div>
@@ -728,48 +587,48 @@
     <div class="contact-inner fade-in">
       <div>
         <p class="section-label">Let's Connect</p>
-        <h2 class="section-title" style="font-size:2.2rem">Open to Data<br/>& ML Opportunities</h2>
-        <p style="color:var(--muted);margin-top:1rem;max-width:360px">Currently seeking full-time roles in Data Analytics, Applied ML, or Business Intelligence. Based in Chandler, AZ — available May 2026.</p>
-        <a href="#contact" class="btn-primary" style="margin-top:2rem;display:inline-flex">✉ Send Me an Email</a>
+        <h2 class="section-title" style="font-size:2rem;">Open to Data &amp; ML Opportunities</h2>
+        <p style="color:var(--body);margin-top:1rem;font-size:0.95rem;line-height:1.7;">Currently seeking full-time roles in Data Analytics, Applied ML, or Business Intelligence. Based in Chandler, AZ &mdash; available May 2026.</p>
+        <a href="#contact" class="btn-primary" style="margin-top:2rem;display:inline-flex;">&#9993; Send Me an Email</a>
       </div>
       <div class="contact-links">
-        <a href="#" class="contact-link">
-          <span class="contact-link-icon">✉</span>
+        <div class="contact-link">
+          <div class="contact-link-icon">&#9993;</div>
           <div>
             <div class="contact-link-label">Email</div>
             <div class="contact-link-value">kkv.goal [at] gmail.com</div>
           </div>
-        </a>
-        <a href="#" class="contact-link">
-          <span class="contact-link-icon">🎓</span>
+        </div>
+        <div class="contact-link">
+          <div class="contact-link-icon">&#127891;</div>
           <div>
             <div class="contact-link-label">University Email</div>
             <div class="contact-link-value">kkv1 [at] arizona.edu</div>
           </div>
-        </a>
+        </div>
         <a href="https://github.com/kkvhub" target="_blank" class="contact-link">
-          <span class="contact-link-icon">🐙</span>
+          <div class="contact-link-icon">&#128025;</div>
           <div>
             <div class="contact-link-label">GitHub</div>
             <div class="contact-link-value">github.com/kkvhub</div>
           </div>
         </a>
         <a href="https://public.tableau.com/app/profile/kaushlendra.verma/vizzes" target="_blank" class="contact-link">
-          <span class="contact-link-icon">📊</span>
+          <div class="contact-link-icon">&#128202;</div>
           <div>
             <div class="contact-link-label">Tableau Public</div>
             <div class="contact-link-value">kaushlendra.verma</div>
           </div>
         </a>
         <a href="https://www.linkedin.com/in/kaushlendrakumar-verma" target="_blank" class="contact-link">
-          <span class="contact-link-icon">💼</span>
+          <div class="contact-link-icon">&#128188;</div>
           <div>
             <div class="contact-link-label">LinkedIn</div>
             <div class="contact-link-value">kaushlendrakumar-verma</div>
           </div>
         </a>
         <a href="tel:4805694865" class="contact-link">
-          <span class="contact-link-icon">📞</span>
+          <div class="contact-link-icon">&#128222;</div>
           <div>
             <div class="contact-link-label">Phone</div>
             <div class="contact-link-value">(480) 569-4865</div>
@@ -780,30 +639,79 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <p>© 2026 Kaushlendra Kumar Verma · Built for impact, powered by data.</p>
+  <p>&#169; 2026 Kaushlendra Kumar Verma &nbsp;&middot;&nbsp; Built for impact, powered by data.</p>
 </footer>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var faders = document.querySelectorAll(".fade-in");
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = "1";
-          entry.target.style.transform = "translateY(0)";
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.05, rootMargin: "0px 0px -30px 0px" });
-    faders.forEach(function(el) {
-      el.style.opacity = "0";
-      el.style.transform = "translateY(25px)";
-      el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-      observer.observe(el);
+document.addEventListener("DOMContentLoaded", function() {
+  // Fade-in observer
+  var faders = document.querySelectorAll(".fade-in");
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+        observer.unobserve(entry.target);
+      }
     });
+  }, { threshold: 0.05, rootMargin: "0px 0px -30px 0px" });
+  faders.forEach(function(el) {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(20px)";
+    el.style.transition = "opacity 0.55s ease, transform 0.55s ease";
+    observer.observe(el);
   });
+
+  // Orbit animation using JS positioning — icons never rotate on their axis
+  var viz = document.getElementById("skillViz");
+  if (!viz) return;
+
+  var cx = 180, cy = 180; // center of 360x360 container
+  var r1 = 90,  r2 = 150; // inner and outer orbit radii
+  var speed1 = 0.0002;    // radians per ms, clockwise
+  var speed2 = -0.0001;   // counter-clockwise for outer ring
+
+  var nodes = viz.querySelectorAll(".viz-node");
+  var inner = [], outer = [];
+  nodes.forEach(function(n) {
+    if (n.dataset.ring === "1") inner.push(n);
+    else outer.push(n);
+  });
+
+  // Spread starting angles evenly
+  function startAngles(count) {
+    var arr = [];
+    for (var i = 0; i < count; i++) arr.push((2 * Math.PI * i) / count - Math.PI / 2);
+    return arr;
+  }
+  var a1 = startAngles(inner.length);
+  var a2 = startAngles(outer.length);
+
+  var last = null;
+  function animate(ts) {
+    if (!last) last = ts;
+    var dt = ts - last;
+    last = ts;
+
+    for (var i = 0; i < inner.length; i++) {
+      a1[i] += speed1 * dt;
+      var x = cx + r1 * Math.cos(a1[i]);
+      var y = cy + r1 * Math.sin(a1[i]);
+      inner[i].style.left = x + "px";
+      inner[i].style.top  = y + "px";
+    }
+    for (var j = 0; j < outer.length; j++) {
+      a2[j] += speed2 * dt;
+      var x2 = cx + r2 * Math.cos(a2[j]);
+      var y2 = cy + r2 * Math.sin(a2[j]);
+      outer[j].style.left = x2 + "px";
+      outer[j].style.top  = y2 + "px";
+    }
+    requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
+});
 </script>
 </body>
 </html>
