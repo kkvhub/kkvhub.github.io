@@ -61,12 +61,13 @@ section{position:relative;}
 
 /* HERO VISUAL */
 .hero-visual{display:flex;justify-content:center;align-items:center;}
-.skill-viz{position:relative;width:360px;height:360px;}
-.viz-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:90px;height:90px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;z-index:10;box-shadow:0 0 0 14px rgba(5,150,105,0.1),0 0 0 28px rgba(5,150,105,0.05);}
+.skill-viz{position:relative;width:420px;height:420px;}
+.viz-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120px;height:120px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;z-index:10;box-shadow:0 0 0 4px #fff, 0 0 0 8px var(--green-border), 0 0 0 22px rgba(5,150,105,0.08);}
+.viz-center img{width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:center top;display:block;}
 .viz-center-text{font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:800;color:#fff;letter-spacing:0.04em;}
 .viz-ring{position:absolute;top:50%;left:50%;border-radius:50%;border:1px dashed rgba(5,150,105,0.2);transform:translate(-50%,-50%);pointer-events:none;}
-.viz-ring-1{width:180px;height:180px;}
-.viz-ring-2{width:300px;height:300px;}
+.viz-ring-1{width:220px;height:220px;}
+.viz-ring-2{width:350px;height:350px;}
 .viz-node{position:absolute;display:flex;flex-direction:column;align-items:center;gap:3px;transform:translate(-50%,-50%);}
 .viz-node-icon{width:40px;height:40px;border-radius:9px;background:var(--white);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1rem;box-shadow:0 2px 10px rgba(0,0,0,0.07);}
 .viz-node-label{font-family:'Montserrat',sans-serif;font-size:0.56rem;font-weight:700;color:var(--body);text-transform:uppercase;letter-spacing:0.05em;white-space:nowrap;background:rgba(255,255,255,0.95);padding:1px 5px;border-radius:3px;border:1px solid var(--border);}
@@ -209,9 +210,9 @@ footer{text-align:center;padding:1.8rem;color:var(--muted);font-size:0.8rem;bord
   <div class="container">
     <div class="hero-inner">
       <div>
-        <div class="hero-badge"><span></span> From Highways to Algorithms </div>
+        <div class="hero-badge"><span></span> Open to Data &amp; ML Roles &mdash; May 2026</div>
         <h1 class="hero-name">Kaushlendra<br/>Kumar <span class="green">Verma</span></h1>
-        <p class="hero-role">Data &amp; Applied ML Engineer &nbsp;&middot;&nbsp; MS Business Analytics </p>
+        <p class="hero-role">Data &amp; Applied ML Engineer &nbsp;&middot;&nbsp; MS Business Analytics &nbsp;&middot;&nbsp; GPA 4.0</p>
         <p class="hero-desc">Bridging 9+ years of engineering expertise with modern machine learning &mdash; turning complex datasets into decisions that drive real business outcomes.</p>
         <div class="hero-ctas">
           <a href="#projects" class="btn-primary">View My Work</a>
@@ -221,14 +222,16 @@ footer{text-align:center;padding:1.8rem;color:var(--muted);font-size:0.8rem;bord
           <div><div class="stat-num">9+</div><div class="stat-label">Years Experience</div></div>
           <div><div class="stat-num">4.0</div><div class="stat-label">MS GPA</div></div>
           <div><div class="stat-num">6+</div><div class="stat-label">ML Projects</div></div>
-          <div><div class="stat-num">1st</div><div class="stat-label">Arizona Statewide Business Case Competition</div></div>
+          <div><div class="stat-num">1st</div><div class="stat-label">Business Analytics Competition</div></div>
         </div>
       </div>
       <div class="hero-visual">
         <div class="skill-viz" id="skillViz">
           <div class="viz-ring viz-ring-1"></div>
           <div class="viz-ring viz-ring-2"></div>
-          <div class="viz-center"><span class="viz-center-text">KKV</span></div>
+          <div class="viz-center">
+            <img src="photo.jpg" alt="Kaushlendra Kumar Verma" onerror="this.style.display='none';this.parentNode.innerHTML='<span class=\'viz-center-text\'>KKV</span>'"/>
+          </div>
           <!-- Inner ring nodes -->
           <div class="viz-node" data-ring="1" data-idx="0"><div class="viz-node-icon">🐍</div><span class="viz-node-label">Python</span></div>
           <div class="viz-node" data-ring="1" data-idx="1"><div class="viz-node-icon">🗄️</div><span class="viz-node-label">SQL</span></div>
@@ -667,10 +670,10 @@ document.addEventListener("DOMContentLoaded", function() {
   var viz = document.getElementById("skillViz");
   if (!viz) return;
 
-  var cx = 180, cy = 180; // center of 360x360 container
-  var r1 = 90,  r2 = 150; // inner and outer orbit radii
-  var speed1 = 0.0002;    // radians per ms, clockwise
-  var speed2 = -0.0001;   // counter-clockwise for outer ring
+  var cx = 210, cy = 210; // center of 420x420 container
+  var r1 = 110, r2 = 175; // inner and outer orbit radii
+  var speed1 = 0.0003;    // radians per ms, clockwise
+  var speed2 = -0.0002;   // counter-clockwise for outer ring
 
   var nodes = viz.querySelectorAll(".viz-node");
   var inner = [], outer = [];
