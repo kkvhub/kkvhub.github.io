@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -33,12 +33,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 
 /* LAYOUT */
 .container{max-width:1080px;margin:0 auto;padding:0 2rem;}
-section{position:relative;}
+section{position:relative;scroll-margin-top:84px;}
 
 /* SECTION LABELS */
 .section-label{font-family:'Montserrat',sans-serif;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--green);font-weight:700;margin-bottom:0.6rem;}
 .section-title{font-family:'Montserrat',sans-serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;color:var(--heading);line-height:1.15;margin-bottom:0.8rem;letter-spacing:-0.02em;}
-.section-desc{color:var(--body);max-width:540px;margin-bottom:3rem;font-size:0.97rem;}
+.section-desc{color:var(--body);max-width:680px;margin-bottom:3rem;font-size:0.97rem;}
 
 /* HERO */
 #hero{min-height:100vh;display:flex;align-items:center;padding:8rem 0 5rem;background:var(--white);}
@@ -48,16 +48,17 @@ section{position:relative;}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
 .hero-name{font-family:'Montserrat',sans-serif;font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:800;color:var(--heading);line-height:1.08;letter-spacing:-0.03em;margin-bottom:0.6rem;}
 .hero-name .green{color:var(--green);}
-.hero-role{font-family:'Montserrat',sans-serif;font-size:0.97rem;font-weight:600;color:var(--body);margin-bottom:1.4rem;}
+.hero-role{display:flex;flex-wrap:wrap;gap:0.55rem 1rem;font-family:'Montserrat',sans-serif;font-size:0.97rem;font-weight:600;color:var(--body);margin-bottom:1.4rem;}
+.hero-role span{display:inline-flex;align-items:center;white-space:nowrap;}
 .hero-desc{color:var(--body);font-size:0.97rem;max-width:460px;margin-bottom:2.5rem;line-height:1.75;}
 .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem;}
 .btn-primary{display:inline-flex;align-items:center;gap:0.5rem;background:var(--green);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.85rem;letter-spacing:0.03em;padding:0.8rem 1.8rem;border-radius:8px;text-decoration:none;transition:background 0.2s,transform 0.2s;}
 .btn-primary:hover{background:#047857;transform:translateY(-2px);}
 .btn-outline{display:inline-flex;align-items:center;gap:0.5rem;border:1.5px solid var(--border);color:var(--heading);font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.85rem;padding:0.8rem 1.8rem;border-radius:8px;text-decoration:none;transition:border-color 0.2s,color 0.2s,transform 0.2s;}
 .btn-outline:hover{border-color:var(--green);color:var(--green);transform:translateY(-2px);}
-.hero-stats{display:flex;gap:2.5rem;padding-top:2rem;border-top:1px solid var(--border);}
+.hero-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.6rem;padding-top:2rem;border-top:1px solid var(--border);}
 .stat-num{font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:800;color:var(--heading);line-height:1;}
-.stat-label{font-size:0.74rem;color:var(--muted);margin-top:0.3rem;}
+.stat-label{font-size:0.74rem;color:var(--muted);margin-top:0.3rem;line-height:1.35;}
 
 /* HERO VISUAL */
 .hero-visual{display:flex;justify-content:center;align-items:center;}
@@ -83,6 +84,7 @@ section{position:relative;}
 .tags{display:flex;flex-wrap:wrap;gap:0.5rem;}
 .tag{background:var(--white);border:1px solid var(--border);color:var(--body);font-size:0.8rem;padding:0.35rem 0.85rem;border-radius:6px;font-weight:500;transition:border-color 0.2s,color 0.2s;}
 .tag:hover{border-color:var(--green);color:var(--green);}
+.skill-split{margin-bottom:1.2rem;}
 .status-tags{display:flex;flex-wrap:wrap;gap:0.5rem;}
 .status-tag{font-size:0.8rem;font-weight:600;padding:0.35rem 0.85rem;border-radius:6px;font-family:'Montserrat',sans-serif;}
 .st-green{background:var(--green-light);color:var(--green);border:1px solid var(--green-border);}
@@ -101,11 +103,42 @@ section{position:relative;}
 
 /* PROJECTS */
 #projects{padding:6rem 0;background:var(--bg-light);}
+
+/* Category tab bar */
+.proj-tabs{display:flex;gap:0.8rem;margin-bottom:2.5rem;flex-wrap:wrap;}
+.proj-tab{display:inline-flex;align-items:center;gap:0.5rem;font-family:'Montserrat',sans-serif;font-size:0.82rem;font-weight:700;padding:0.7rem 1.4rem;border-radius:10px;border:1.5px solid var(--border);background:var(--white);color:var(--body);cursor:pointer;transition:all 0.2s;letter-spacing:0.02em;}
+.proj-tab:hover{border-color:var(--green);color:var(--green);}
+.proj-tab.active{background:var(--green);color:#fff;border-color:var(--green);}
+.proj-tab-icon{font-size:1rem;}
+.proj-tab-count{font-size:0.68rem;background:rgba(255,255,255,0.25);padding:0.1rem 0.4rem;border-radius:4px;font-weight:700;}
+.proj-tab:not(.active) .proj-tab-count{background:var(--tag-bg);color:var(--muted);}
+
+/* Category view (overview) */
+.proj-overview{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;align-items:stretch;}
+.cat-card{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:2rem;cursor:pointer;transition:all 0.25s;position:relative;overflow:hidden;display:flex;flex-direction:column;height:100%;}
+.cat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform 0.25s;}
+.cat-card:hover{border-color:var(--green);transform:translateY(-4px);box-shadow:0 10px 40px rgba(5,150,105,0.08);}
+.cat-card:hover::before{transform:scaleX(1);}
+.cat-icon{font-size:2rem;margin-bottom:1rem;}
+.cat-title{font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:var(--heading);margin-bottom:0.5rem;}
+.cat-desc{color:var(--body);font-size:0.88rem;line-height:1.6;margin-bottom:1.2rem;}
+.cat-pills{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:1.4rem;}
+.cat-pill{background:var(--tag-bg);border:1px solid var(--border);color:var(--body);font-size:0.72rem;padding:0.22rem 0.6rem;border-radius:4px;font-weight:500;}
+.cat-cta{display:inline-flex;align-items:center;gap:0.4rem;font-family:'Montserrat',sans-serif;font-size:0.78rem;font-weight:700;color:var(--green);letter-spacing:0.03em;margin-top:auto;}
+
+/* Detail view (project list inside a category) */
+.proj-detail{display:none;scroll-margin-top:84px;}
+.proj-detail.active{display:block;}
+.proj-detail-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:1rem;}
+.proj-detail-title{font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:800;color:var(--heading);}
+.back-btn{display:inline-flex;align-items:center;gap:0.5rem;font-family:'Montserrat',sans-serif;font-size:0.82rem;font-weight:700;color:var(--green);background:var(--green-light);border:1px solid var(--green-border);padding:0.55rem 1.1rem;border-radius:8px;cursor:pointer;transition:background 0.2s;text-decoration:none;}
+.back-btn:hover{background:var(--green-border);}
+
 .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;}
-.project-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.8rem;transition:border-color 0.25s,box-shadow 0.25s,transform 0.25s;display:flex;flex-direction:column;}
+.project-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.8rem;transition:border-color 0.25s,box-shadow 0.25s,transform 0.25s;display:flex;flex-direction:column;min-height:100%;}
 .project-card:hover{border-color:var(--green);transform:translateY(-4px);box-shadow:0 10px 40px rgba(5,150,105,0.08);}
 .project-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:0.8rem;gap:1rem;flex-wrap:wrap;}
-.project-badge{font-family:'Montserrat',sans-serif;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.08em;font-weight:700;padding:0.28rem 0.75rem;border-radius:5px;white-space:nowrap;}
+.project-badge{font-family:'Montserrat',sans-serif;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.08em;font-weight:700;padding:0.28rem 0.75rem;border-radius:5px;white-space:normal;line-height:1.35;}
 .badge-ml{background:#ecfdf5;color:#059669;border:1px solid #a7f3d0;}
 .badge-analytics{background:#eff6ff;color:#2563eb;border:1px solid #bfdbfe;}
 .badge-sql{background:#fff7ed;color:#c2410c;border:1px solid #fed7aa;}
@@ -116,9 +149,21 @@ section{position:relative;}
 .live-dot{width:5px;height:5px;border-radius:50%;background:#6ee7b7;flex-shrink:0;}
 .project-card h3{font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:0.6rem;line-height:1.3;}
 .project-card p{color:var(--body);font-size:0.88rem;margin-bottom:1rem;line-height:1.65;flex-grow:1;}
-.project-metric{display:inline-flex;align-items:center;gap:0.4rem;background:var(--green-light);border:1px solid var(--green-border);color:var(--green);font-size:0.78rem;font-weight:700;padding:0.3rem 0.8rem;border-radius:6px;margin-bottom:1rem;font-family:'Montserrat',sans-serif;}
+.project-metric{display:inline-flex;align-items:center;flex-wrap:wrap;gap:0.4rem;background:var(--green-light);border:1px solid var(--green-border);color:var(--green);font-size:0.78rem;font-weight:700;padding:0.3rem 0.8rem;border-radius:6px;margin-bottom:1rem;font-family:'Montserrat',sans-serif;align-self:flex-start;line-height:1.45;}
 .project-skills{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:auto;}
 .project-skill{background:var(--tag-bg);border:1px solid var(--border);color:var(--body);font-size:0.78rem;padding:0.28rem 0.65rem;border-radius:5px;}
+.erd-preview{width:100%;margin:0.2rem 0 1rem;border:1px solid var(--border);border-radius:10px;background:var(--white);padding:0.55rem;cursor:pointer;text-align:left;transition:border-color 0.2s,box-shadow 0.2s;}
+.erd-preview:hover,.erd-preview:focus{border-color:var(--green);box-shadow:0 6px 20px rgba(5,150,105,0.08);outline:none;}
+.erd-preview img{width:100%;height:110px;object-fit:cover;object-position:center;display:block;border-radius:7px;border:1px solid var(--border);}
+.erd-preview span{display:block;margin-top:0.45rem;font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:700;color:var(--green);letter-spacing:0.03em;}
+.image-modal{position:fixed;inset:0;z-index:500;display:none;align-items:center;justify-content:center;background:rgba(15,23,42,0.82);padding:2rem;}
+.image-modal.active{display:flex;}
+.image-modal-panel{position:relative;width:min(1100px,96vw);max-height:92vh;background:var(--white);border-radius:12px;padding:1rem;box-shadow:0 24px 80px rgba(0,0,0,0.28);}
+.modal-toolbar{display:flex;justify-content:flex-end;gap:0.5rem;margin-bottom:0.75rem;}
+.modal-btn{border:1px solid var(--border);background:var(--white);color:var(--heading);font-family:'Montserrat',sans-serif;font-size:0.78rem;font-weight:700;border-radius:7px;padding:0.45rem 0.75rem;cursor:pointer;box-shadow:0 4px 16px rgba(15,23,42,0.08);}
+.modal-btn:hover,.modal-btn:focus{border-color:var(--green);color:var(--green);outline:none;}
+.erd-image-wrap{max-height:78vh;overflow:auto;background:var(--bg-light);border-radius:8px;border:1px solid var(--border);}
+.erd-modal-image{width:100%;max-width:none;object-fit:contain;display:block;border-radius:8px;transform-origin:top center;transition:width 0.18s ease;}
 
 /* EXPERIENCE */
 #experience{padding:6rem 0;background:var(--white);}
@@ -132,7 +177,7 @@ section{position:relative;}
 .timeline-company{color:var(--body);font-size:0.88rem;margin-bottom:0.8rem;}
 .timeline-bullets{list-style:none;}
 .timeline-bullets li{color:var(--body);font-size:0.88rem;padding:0.25rem 0 0.25rem 1.2rem;position:relative;line-height:1.6;}
-.timeline-bullets li::before{content:'→';position:absolute;left:0;color:var(--green);font-size:0.78rem;top:0.3rem;}
+.timeline-bullets li::before{content:'>';position:absolute;left:0;color:var(--green);font-size:0.78rem;top:0.3rem;}
 .timeline-bullets li strong{color:var(--heading);font-weight:600;}
 
 /* EDUCATION */
@@ -149,7 +194,7 @@ section{position:relative;}
 
 /* AWARDS */
 #awards{padding:6rem 0;background:var(--white);}
-.awards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.awards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;}
 .award-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.8rem;transition:border-color 0.25s,transform 0.25s,box-shadow 0.25s;position:relative;overflow:hidden;}
 .award-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--green);opacity:0;transition:opacity 0.25s;}
 .award-card:hover{border-color:var(--green);transform:translateY(-3px);box-shadow:0 8px 30px rgba(5,150,105,0.08);}
@@ -161,7 +206,7 @@ section{position:relative;}
 
 /* CONTACT */
 #contact{padding:6rem 0;background:var(--bg-light);}
-.contact-inner{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:3.5rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;box-shadow:0 4px 30px rgba(0,0,0,0.04);}
+.contact-inner{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:3.5rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;box-shadow:0 4px 30px rgba(0,0,0,0.04);}
 .contact-links{display:flex;flex-direction:column;gap:0.8rem;}
 .contact-link{display:flex;align-items:center;gap:1rem;text-decoration:none;color:var(--heading);border:1px solid var(--border);padding:0.9rem 1.2rem;border-radius:10px;transition:border-color 0.2s,box-shadow 0.2s;background:var(--white);}
 .contact-link:hover{border-color:var(--green);box-shadow:0 4px 16px rgba(5,150,105,0.08);}
@@ -184,6 +229,9 @@ footer{text-align:center;padding:1.8rem;color:var(--muted);font-size:0.8rem;bord
   .about-grid{grid-template-columns:1fr;gap:2rem;}
   .skills-grid{grid-template-columns:repeat(2,1fr);}
   .projects-grid{grid-template-columns:1fr;}
+  .proj-overview{grid-template-columns:1fr;}
+  .hero-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem;}
+  .hero-role span{white-space:normal;}
   .edu-grid{grid-template-columns:1fr;}
   .awards-grid{grid-template-columns:1fr;}
   .contact-inner{grid-template-columns:1fr;padding:2rem;gap:2rem;}
@@ -210,18 +258,18 @@ footer{text-align:center;padding:1.8rem;color:var(--muted);font-size:0.8rem;bord
   <div class="container">
     <div class="hero-inner">
       <div>
-        <div class="hero-badge"><span></span> Open to Data &amp; ML Roles </div>
+        <div class="hero-badge"><span></span> MS Graduate <span class="soft-sep">|</span> Open to Data &amp; ML Roles</div>
         <h1 class="hero-name">Kaushlendra<br/>Kumar <span class="green">Verma</span></h1>
-        <p class="hero-role">Data &amp; Applied ML Engineer &nbsp;&middot;&nbsp; MS Business Analytics &nbsp;&middot;&nbsp; GPA 4.0</p>
-        <p class="hero-desc">Bridging 9+ years of engineering expertise with modern machine learning &mdash; turning complex datasets into decisions that drive real business outcomes.</p>
+        <p class="hero-role"><span>Data &amp; Applied ML Engineer</span><span>MS Business Analytics, GPA 4.0</span></p>
+        <p class="hero-desc">Bridging 9+ years of engineering expertise with modern machine learning, turning complex datasets into decisions that drive real business outcomes.</p>
         <div class="hero-ctas">
           <a href="#projects" class="btn-primary">View My Work</a>
           <a href="#contact" class="btn-outline">Get In Touch</a>
         </div>
         <div class="hero-stats">
           <div><div class="stat-num">9+</div><div class="stat-label">Years Experience</div></div>
-          <div><div class="stat-num">4.0</div><div class="stat-label">MS GPA</div></div>
-          <div><div class="stat-num">6+</div><div class="stat-label">ML Projects</div></div>
+          <div><div class="stat-num">4.0</div><div class="stat-label">MS GPA Academic Excellence Award Holder</div></div>
+          <div><div class="stat-num">10+</div><div class="stat-label">ML Projects</div></div>
           <div><div class="stat-num">1st</div><div class="stat-label">Arizona Statewide Business Case Competition</div></div>
         </div>
       </div>
@@ -233,16 +281,16 @@ footer{text-align:center;padding:1.8rem;color:var(--muted);font-size:0.8rem;bord
             <img src="photo.jpg" alt="Kaushlendra Kumar Verma" onerror="this.style.display='none';this.parentNode.innerHTML='<span class=\'viz-center-text\'>KKV</span>'"/>
           </div>
           <!-- Inner ring nodes -->
-          <div class="viz-node" data-ring="1" data-idx="0"><div class="viz-node-icon">🐍</div><span class="viz-node-label">Python</span></div>
-          <div class="viz-node" data-ring="1" data-idx="1"><div class="viz-node-icon">🗄️</div><span class="viz-node-label">SQL</span></div>
-          <div class="viz-node" data-ring="1" data-idx="2"><div class="viz-node-icon">🧠</div><span class="viz-node-label">ML</span></div>
-          <div class="viz-node" data-ring="1" data-idx="3"><div class="viz-node-icon">📊</div><span class="viz-node-label">R</span></div>
+          <div class="viz-node" data-ring="1" data-idx="0"><div class="viz-node-icon">&#128013;</div><span class="viz-node-label">Python</span></div>
+          <div class="viz-node" data-ring="1" data-idx="1"><div class="viz-node-icon">&#128451;</div><span class="viz-node-label">SQL</span></div>
+          <div class="viz-node" data-ring="1" data-idx="2"><div class="viz-node-icon">&#129504;</div><span class="viz-node-label">ML</span></div>
+          <div class="viz-node" data-ring="1" data-idx="3"><div class="viz-node-icon">&#128202;</div><span class="viz-node-label">R</span></div>
           <!-- Outer ring nodes -->
-          <div class="viz-node" data-ring="2" data-idx="0"><div class="viz-node-icon">⚡</div><span class="viz-node-label">TensorFlow</span></div>
-          <div class="viz-node" data-ring="2" data-idx="1"><div class="viz-node-icon">📈</div><span class="viz-node-label">Tableau</span></div>
-          <div class="viz-node" data-ring="2" data-idx="2"><div class="viz-node-icon">🎯</div><span class="viz-node-label">XGBoost</span></div>
-          <div class="viz-node" data-ring="2" data-idx="3"><div class="viz-node-icon">🛣️</div><span class="viz-node-label">Highway Eng</span></div>
-          <div class="viz-node" data-ring="2" data-idx="4"><div class="viz-node-icon">🚦</div><span class="viz-node-label">Traffic Eng</span></div>
+          <div class="viz-node" data-ring="2" data-idx="0"><div class="viz-node-icon">&#9889;</div><span class="viz-node-label">Comp. Vision</span></div>
+          <div class="viz-node" data-ring="2" data-idx="1"><div class="viz-node-icon">&#128200;</div><span class="viz-node-label">Tableau</span></div>
+          <div class="viz-node" data-ring="2" data-idx="2"><div class="viz-node-icon">&#127919;</div><span class="viz-node-label">XGBoost</span></div>
+          <div class="viz-node" data-ring="2" data-idx="3"><div class="viz-node-icon">&#128739;</div><span class="viz-node-label">Highway Eng</span></div>
+          <div class="viz-node" data-ring="2" data-idx="4"><div class="viz-node-icon">&#128678;</div><span class="viz-node-label">Traffic Eng</span></div>
         </div>
       </div>
     </div>
@@ -257,32 +305,47 @@ footer{text-align:center;padding:1.8rem;color:var(--muted);font-size:0.8rem;bord
         <p class="section-label">About Me</p>
         <h2 class="section-title">Engineering Meets Machine Intelligence</h2>
         <p>I am completing my <strong>MS in Business Analytics at the University of Arizona (GPA 4.0)</strong>, building on nearly a decade of leading infrastructure projects across India.</p>
-        <p>My highway design background trained me to think in systems &mdash; precise inputs, structured logic, measurable outputs. I now apply that same discipline to <strong>predictive modeling, deep learning, and data-driven decision systems</strong>.</p>
-        <p>I thrive at the intersection of technical depth and business impact &mdash; translating raw data into decisions that matter, whether uncovering credit risk patterns, optimizing supply chains, or surfacing fairness gaps in healthcare ML models.</p>
-        <div class="about-quote">"I bring engineering precision, analytical thinking, and business acumen to data-driven problem-solving &mdash; finding patterns that reveal meaningful insights."</div>
+        <p>My highway design background trained me to think in systems: precise inputs, structured logic, and measurable outputs. I now apply that same discipline to <strong>predictive modeling, deep learning, and data driven decision systems</strong>.</p>
+        <p>I thrive at the intersection of technical depth and business impact, translating raw data into decisions that matter, whether uncovering credit risk patterns, optimizing supply chains, or surfacing fairness gaps in healthcare ML models.</p>
+        <div class="about-quote">"I bring engineering precision, analytical thinking, and business acumen to data driven problem solving, finding patterns that reveal meaningful insights."</div>
       </div>
       <div class="about-right fade-in">
-        <div class="tag-group-label">Core Skills</div>
-        <div class="tags">
-          <span class="tag">Machine Learning</span>
-          <span class="tag">Deep Learning</span>
-          <span class="tag">Python</span>
-          <span class="tag">SQL</span>
-          <span class="tag">R</span>
-          <span class="tag">Tableau</span>
-          <span class="tag">Power BI</span>
-          <span class="tag">TensorFlow</span>
-          <span class="tag">Keras</span>
-          <span class="tag">Scikit-learn</span>
-          <span class="tag">Data Visualization</span>
-          <span class="tag">Statistical Analysis</span>
-          <span class="tag">ETL Pipelines</span>
-          <span class="tag">Feature Engineering</span>
+        <div class="skill-split">
+          <div class="tag-group-label">Analytics Skills</div>
+          <div class="tags">
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Deep Learning</span>
+            <span class="tag">Python</span>
+            <span class="tag">SQL</span>
+            <span class="tag">R</span>
+            <span class="tag">Tableau</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">Computer Vision</span>
+            <span class="tag">Keras</span>
+            <span class="tag">Scikit learn</span>
+            <span class="tag">Data Visualization</span>
+            <span class="tag">Statistical Analysis</span>
+            <span class="tag">ETL Pipelines</span>
+            <span class="tag">Feature Engineering</span>
+          </div>
+        </div>
+        <div class="skill-split">
+          <div class="tag-group-label">Engineering Skills</div>
+          <div class="tags">
+            <span class="tag">Geometric Design</span>
+            <span class="tag">Pavement Life Prediction</span>
+            <span class="tag">Pavement Maintenance</span>
+            <span class="tag">Traffic Engineering</span>
+            <span class="tag">Road Safety Compliance</span>
+            <span class="tag">Pavement Condition Analysis</span>
+            <span class="tag">Quantity Estimation</span>
+            <span class="tag">Drainage Design</span>
+          </div>
         </div>
         <div class="tag-group-label">Currently</div>
         <div class="status-tags">
           <span class="status-tag st-green">Chandler, AZ</span>
-          <span class="status-tag st-blue">UofA &middot; May 2026</span>
+          <span class="status-tag st-blue">MS Graduate &nbsp;&middot;&nbsp; May 2026</span>
           <span class="status-tag st-purple">Open to Work</span>
         </div>
       </div>
@@ -296,7 +359,7 @@ footer{text-align:center;padding:1.8rem;color:var(--muted);font-size:0.8rem;bord
     <div class="fade-in">
       <p class="section-label">Technical Toolkit</p>
       <h2 class="section-title">Skills &amp; Technologies</h2>
-      <p class="section-desc">A full-stack data science toolkit &mdash; from raw data wrangling to production ML model deployment.</p>
+      <p class="section-desc">A full stack data science toolkit spanning raw data wrangling, modeling, visualization, and production ML deployment.</p>
     </div>
     <div class="skills-grid">
       <div class="skill-card fade-in">
@@ -310,7 +373,7 @@ footer{text-align:center;padding:1.8rem;color:var(--muted);font-size:0.8rem;bord
         <div class="skill-icon">&#129504;</div>
         <h3>ML &amp; Deep Learning</h3>
         <div class="skill-tags">
-          <span class="skill-tag">TensorFlow</span><span class="skill-tag">Keras</span><span class="skill-tag">Scikit-learn</span><span class="skill-tag">XGBoost</span><span class="skill-tag">CNN</span><span class="skill-tag">Transfer Learning</span>
+          <span class="skill-tag">TensorFlow</span><span class="skill-tag">Keras</span><span class="skill-tag">Scikit learn</span><span class="skill-tag">XGBoost</span><span class="skill-tag">CNN</span><span class="skill-tag">Transfer Learning</span>
         </div>
       </div>
       <div class="skill-card fade-in">
@@ -351,110 +414,219 @@ footer{text-align:center;padding:1.8rem;color:var(--muted);font-size:0.8rem;bord
     <div class="fade-in">
       <p class="section-label">Portfolio</p>
       <h2 class="section-title">Featured Projects</h2>
-      <p class="section-desc">Applied ML and analytics projects solving real business problems &mdash; from healthcare to infrastructure.</p>
+      <p class="section-desc">11 projects across ML, analytics, and engineering. Select a category to explore.</p>
     </div>
-    <div class="projects-grid">
 
-      <div class="project-card fade-in">
-        <div class="project-top">
-          <span class="project-badge badge-ml">Deep Learning &middot; Healthcare</span>
-          <a href="https://oud-risk-prediction.streamlit.app/" target="_blank" class="live-btn"><span class="live-dot"></span> Live App</a>
+    <!-- OVERVIEW: 3 category cards -->
+    <div class="proj-overview fade-in" id="projOverview">
+
+      <div class="cat-card" onclick="showCategory('ml')">
+        <div class="cat-icon">&#129504;</div>
+        <div class="cat-title">Machine Learning &amp; AI</div>
+        <div class="cat-desc">Complete ML pipelines, deep learning, and computer vision projects across healthcare, public health, and classification domains.</div>
+        <div class="cat-pills">
+          <span class="cat-pill">TensorFlow</span><span class="cat-pill">XGBoost</span><span class="cat-pill">Scikit learn</span><span class="cat-pill">SMOTE</span><span class="cat-pill">CNN</span>
         </div>
-        <h3>Medications for Opioid Use Disorder &mdash; ML Pipeline</h3>
-        <p>Built an end-to-end ML pipeline on 95K+ real-world opioid treatment records. Trained and tuned four models &mdash; Logistic Regression, Decision Tree, XGBoost, and Neural Network &mdash; with GridSearchCV hyperparameter optimization. Includes full preprocessing with SMOTE class balancing and demographic fairness analysis across race, gender, age, and state subgroups.</p>
-        <div class="project-metric">Best AUC-ROC: 0.7247 &nbsp;&middot;&nbsp; 95K+ Records</div>
-        <div class="project-skills">
-          <span class="project-skill">Python</span><span class="project-skill">Scikit-learn</span><span class="project-skill">TensorFlow/Keras</span><span class="project-skill">XGBoost</span><span class="project-skill">SMOTE</span><span class="project-skill">GridSearchCV</span><span class="project-skill">Fairness Analysis</span>
-        </div>
+        <div class="cat-cta">4 Projects &#8594;</div>
       </div>
 
-      <div class="project-card fade-in">
-        <div class="project-top">
-          <span class="project-badge badge-ml">Deep Learning &middot; Computer Vision</span>
+      <div class="cat-card" onclick="showCategory('analytics')">
+        <div class="cat-icon">&#128202;</div>
+        <div class="cat-title">Analytics &amp; Business Intelligence</div>
+        <div class="cat-desc">Data driven strategy, credit risk analytics, geospatial market intelligence, regression modeling, and enterprise database design.</div>
+        <div class="cat-pills">
+          <span class="cat-pill">Tableau</span><span class="cat-pill">Python</span><span class="cat-pill">R</span><span class="cat-pill">Oracle SQL</span><span class="cat-pill">GeoPandas</span>
         </div>
-        <h3>AI-Powered Coin Classification System</h3>
-        <p>Built an automated classification system covering 60+ coin types using CNN and transfer learning (MobileNetV2). Applied data augmentation to train robust models with only 10&ndash;15 images per class. Reduced coin verification time from 10 minutes to 20 seconds.</p>
-        <div class="project-metric">96% reduction in verification time</div>
-        <div class="project-skills">
-          <span class="project-skill">TensorFlow</span><span class="project-skill">Keras</span><span class="project-skill">MobileNetV2</span><span class="project-skill">Transfer Learning</span><span class="project-skill">CNN</span><span class="project-skill">Data Augmentation</span>
-        </div>
+        <div class="cat-cta">5 Projects &#8594;</div>
       </div>
 
-      <div class="project-card fade-in">
-        <div class="project-top">
-          <span class="project-badge badge-analytics">ML &middot; Public Health</span>
-          <a href="https://vaccine-predictor.streamlit.app/" target="_blank" class="live-btn"><span class="live-dot"></span> Live App</a>
+      <div class="cat-card" onclick="showCategory('engineering')">
+        <div class="cat-icon">&#128739;</div>
+        <div class="cat-title">Engineering &amp; Domain Tools</div>
+        <div class="cat-desc">Production tools applying highway engineering expertise to design compliance, pavement condition assessment, PCI scoring, and maintenance decisions.</div>
+        <div class="cat-pills">
+          <span class="cat-pill">Python</span><span class="cat-pill">Streamlit</span><span class="cat-pill">YOLOv11</span><span class="cat-pill">IRC Standards</span><span class="cat-pill">PCI</span>
         </div>
-        <h3>H1N1 &amp; Seasonal Flu Vaccination Prediction</h3>
-        <p>Built a classification pipeline on 26K survey records to predict vaccination uptake using behavioral, demographic, and attitudinal features. Applied SMOTE for class imbalance and ran fairness analysis across demographic subgroups &mdash; with findings directly applicable to targeted public health outreach.</p>
-        <div class="project-metric">ROC AUC: ~0.83 &nbsp;&middot;&nbsp; 26K Records</div>
-        <div class="project-skills">
-          <span class="project-skill">Python</span><span class="project-skill">Scikit-learn</span><span class="project-skill">SMOTE</span><span class="project-skill">Logistic Regression</span><span class="project-skill">Random Forest</span><span class="project-skill">Fairness Analysis</span>
-        </div>
-      </div>
-
-      <div class="project-card fade-in">
-        <div class="project-top">
-          <span class="project-badge badge-analytics">Analytics &middot; 1st Place</span>
-        </div>
-        <h3>AmEx Credit Risk Analytics Competition</h3>
-        <p>Won 1st place at the American Express Business Analytics Competition. Analyzed credit risk and customer segmentation across 36K+ client applications using Tableau. Found that property ownership and spending behavior are stronger repayment predictors than income or employment status.</p>
-        <div class="project-metric">1st Place &nbsp;&middot;&nbsp; 36K+ Applications</div>
-        <div class="project-skills">
-          <span class="project-skill">Tableau</span><span class="project-skill">EDA</span><span class="project-skill">Customer Segmentation</span><span class="project-skill">Risk Analysis</span>
-        </div>
-      </div>
-
-      <div class="project-card fade-in">
-        <div class="project-top">
-          <span class="project-badge badge-r">R &middot; Regression &middot; Policy</span>
-        </div>
-        <h3>Determinants of Passport Cost Across Countries</h3>
-        <p>Built a regression model using data from 125 countries to identify economic and governance drivers of passport pricing. Applied BIC and Best Subset model selection with multicollinearity diagnostics. GDP per capita and political stability emerged as the primary determinants &mdash; with clear implications for pricing fairness and policy design.</p>
-        <div class="project-metric">125 Countries &nbsp;&middot;&nbsp; Policy-level Insights</div>
-        <div class="project-skills">
-          <span class="project-skill">R</span><span class="project-skill">Regression Modeling</span><span class="project-skill">VIF / ANOVA</span><span class="project-skill">BIC</span><span class="project-skill">Feature Selection</span><span class="project-skill">EDA</span>
-        </div>
-      </div>
-
-      <div class="project-card fade-in">
-        <div class="project-top">
-          <span class="project-badge badge-r">R &middot; Classification</span>
-        </div>
-        <h3>FMCG Distribution Channel Optimizer</h3>
-        <p>Built an ML model in R to predict the optimal distribution channel for Pepsi across Andhra Pradesh districts. Compared Logistic Regression, Decision Tree, Naive Bayes, and KNN. Identified market type, revenue potential, and vehicle availability as the key business drivers.</p>
-        <div class="project-metric">97.4% Model Accuracy</div>
-        <div class="project-skills">
-          <span class="project-skill">R</span><span class="project-skill">Logistic Regression</span><span class="project-skill">Decision Tree</span><span class="project-skill">KNN</span><span class="project-skill">Naive Bayes</span><span class="project-skill">dplyr</span>
-        </div>
-      </div>
-
-      <div class="project-card fade-in">
-        <div class="project-top">
-          <span class="project-badge badge-sql">SQL &middot; Database</span>
-        </div>
-        <h3>Library Management System</h3>
-        <p>Designed a relational database with 6 normalized tables to manage books, members, employees, and transactions. Built advanced SQL queries using JOINs, CTAS, and Window Functions to generate branch-level revenue reports and identify top-performing staff.</p>
-        <div class="project-metric">6 Normalized Tables &nbsp;&middot;&nbsp; Business Reporting</div>
-        <div class="project-skills">
-          <span class="project-skill">SQL</span><span class="project-skill">Relational Modeling</span><span class="project-skill">Window Functions</span><span class="project-skill">CTAS</span><span class="project-skill">Business Reporting</span>
-        </div>
-      </div>
-
-      <div class="project-card fade-in">
-        <div class="project-top">
-          <span class="project-badge badge-eng">Engineering &middot; Rule Engine</span>
-          <a href="https://irc-compliance-checker.streamlit.app/" target="_blank" class="live-btn"><span class="live-dot"></span> Live App</a>
-        </div>
-        <h3>IRC Geometric Design Compliance Checker</h3>
-        <p>A rule-based compliance engine covering 432+ parameters across three IRC highway design standards. Accepts design inputs, flags HARD FAILs and ADVISORYs instantly, and generates downloadable HTML and Excel audit reports. Directly usable by highway engineers on real 4-lane highway projects.</p>
-        <div class="project-metric">432+ Parameters &nbsp;&middot;&nbsp; 3 IRC Standards</div>
-        <div class="project-skills">
-          <span class="project-skill">Python</span><span class="project-skill">Streamlit</span><span class="project-skill">Pandas</span><span class="project-skill">openpyxl</span><span class="project-skill">Rule Engine Design</span>
-        </div>
+        <div class="cat-cta">2 Projects &#8594;</div>
       </div>
 
     </div>
+
+    <!-- DETAIL: ML & AI -->
+    <div class="proj-detail" id="cat-ml">
+      <div class="proj-detail-header">
+        <div class="proj-detail-title">&#129504; &nbsp;Machine Learning &amp; AI</div>
+        <span class="back-btn" onclick="showOverview()">&#8592; &nbsp;Back to Categories</span>
+      </div>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-top">
+            <span class="project-badge badge-ml">Deep Learning &middot; Healthcare</span>
+            <a href="https://oud-risk-prediction.streamlit.app/" target="_blank" class="live-btn"><span class="live-dot"></span> Live App</a>
+          </div>
+          <h3>Medications for Opioid Use Disorder ML Pipeline</h3>
+          <p>Complete ML pipeline on 95K+ clinical opioid treatment records. Trained and tuned four models with GridSearchCV: Logistic Regression, Decision Tree, XGBoost, and Neural Network. Includes SMOTE class balancing and demographic fairness analysis across race, gender, age, and state.</p>
+          <div class="project-metric">Best AUC ROC: 0.7247 &nbsp;&middot;&nbsp; 95K+ Records</div>
+          <div class="project-skills">
+            <span class="project-skill">Python</span><span class="project-skill">Scikit learn</span><span class="project-skill">TensorFlow/Keras</span><span class="project-skill">XGBoost</span><span class="project-skill">SMOTE</span><span class="project-skill">GridSearchCV</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <span class="project-badge badge-ml">Deep Learning &middot; Computer Vision</span>
+          </div>
+          <h3>AI Powered Coin Classification System</h3>
+          <p>Automated classification system covering 60+ coin types using CNN and transfer learning (MobileNetV2). Applied data augmentation to train robust models with only 10 to 15 images per class. Reduced coin verification time from 10 minutes to 20 seconds.</p>
+          <div class="project-metric">96% reduction in verification time</div>
+          <div class="project-skills">
+            <span class="project-skill">TensorFlow</span><span class="project-skill">Keras</span><span class="project-skill">MobileNetV2</span><span class="project-skill">Transfer Learning</span><span class="project-skill">CNN</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <span class="project-badge badge-ml">ML &middot; Public Health</span>
+            <a href="https://vaccine-predictor.streamlit.app/" target="_blank" class="live-btn"><span class="live-dot"></span> Live App</a>
+          </div>
+          <h3>H1N1 &amp; Seasonal Flu Vaccination Prediction</h3>
+          <p>Classification pipeline on 26K survey records predicting vaccination uptake from behavioral, demographic, and attitudinal features. Applied SMOTE and ran fairness analysis across demographic subgroups, with findings applicable to targeted public health outreach.</p>
+          <div class="project-metric">ROC AUC: ~0.83 &nbsp;&middot;&nbsp; 26K Records</div>
+          <div class="project-skills">
+            <span class="project-skill">Python</span><span class="project-skill">Scikit learn</span><span class="project-skill">SMOTE</span><span class="project-skill">Random Forest</span><span class="project-skill">Fairness Analysis</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <span class="project-badge badge-r">R &middot; Classification</span>
+          </div>
+          <h3>FMCG Distribution Channel Optimizer</h3>
+          <p>ML model in R predicting the optimal distribution channel for Pepsi across Andhra Pradesh districts. Compared Logistic Regression, Decision Tree, Naive Bayes, and KNN. Identified market type, revenue potential, and vehicle availability as key business drivers.</p>
+          <div class="project-metric">97.4% Model Accuracy</div>
+          <div class="project-skills">
+            <span class="project-skill">R</span><span class="project-skill">Logistic Regression</span><span class="project-skill">Decision Tree</span><span class="project-skill">KNN</span><span class="project-skill">dplyr</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DETAIL: Analytics & BI -->
+    <div class="proj-detail" id="cat-analytics">
+      <div class="proj-detail-header">
+        <div class="proj-detail-title">&#128202; &nbsp;Analytics &amp; Business Intelligence</div>
+        <span class="back-btn" onclick="showOverview()">&#8592; &nbsp;Back to Categories</span>
+      </div>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-top">
+            <span class="project-badge badge-analytics">Business Consulting &middot; Geospatial Clustering</span>
+          </div>
+          <h3>Precision GLP 1 Market Prioritization</h3>
+          <p>Data driven market prioritization framework identifying high priority U.S. zip codes for GLP 1 therapy deployment. Scored ~30,000 ZCTAs using a Composite Priority Index (CPI) across four dimensions: metabolic burden, demographic vulnerability, healthcare access, and hospital infrastructure. Applied K means clustering and sensitivity analysis for actionable market tiers.</p>
+          <div class="project-metric">~30,000 ZCTAs | 5 Datasets | 3 Phase </div>
+          <div class="project-skills">
+            <span class="project-skill">Python</span><span class="project-skill">GeoPandas</span><span class="project-skill">K means</span><span class="project-skill">Scikit learn</span><span class="project-skill">Tableau</span>
+          </div>
+          <div style="display:flex;gap:0.5rem;margin-top:1rem;flex-wrap:wrap;">
+            <a href="https://public.tableau.com/app/profile/kaushlendra.verma/viz/GLP1_17771618290300/GLP1_Analytics" target="_blank" class="live-btn"><span class="live-dot"></span> Exploratory Dashboard</a>
+            <a href="https://public.tableau.com/app/profile/kaushlendra.verma/viz/GLP1_Phase_rollout/GLP1_Rollout2" target="_blank" class="live-btn" style="background:#047857;"><span class="live-dot"></span> Rollout Dashboard</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <span class="project-badge badge-analytics">Analytics &middot; 1st Place</span>
+          </div>
+          <h3>AmEx Credit Risk Analytics Competition</h3>
+          <p>Won 1st place at the American Express Business Analytics Competition. Analyzed credit risk and customer segmentation across 36K+ client applications using Tableau. Found that property ownership and spending behavior are stronger repayment predictors than income or employment status.</p>
+          <div class="project-metric">1st Place | 36K+ Applications</div>
+          <div class="project-skills">
+            <span class="project-skill">Tableau</span><span class="project-skill">EDA</span><span class="project-skill">Customer Segmentation</span><span class="project-skill">Risk Analysis</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <span class="project-badge badge-r">R &middot; Regression &middot; Policy</span>
+          </div>
+          <h3>Determinants of Passport Cost Across Countries</h3>
+          <p>Regression model using data from 125 countries identifying economic and governance drivers of passport pricing. Applied BIC and Best Subset model selection with multicollinearity diagnostics. GDP per capita and political stability emerged as primary determinants, with implications for pricing fairness and policy design.</p>
+          <div class="project-metric">125 Countries | Policy Insights</div>
+          <div class="project-skills">
+            <span class="project-skill">R</span><span class="project-skill">Regression Modeling</span><span class="project-skill">VIF / ANOVA</span><span class="project-skill">BIC</span><span class="project-skill">Feature Selection</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <span class="project-badge badge-sql">Oracle SQL &middot; Enterprise Data</span>
+          </div>
+          <h3>WellCareCorp Enterprise Database</h3>
+          <p>Designed a centralized enterprise database for a 40 state healthcare products manufacturer. The solution covered requirements capture, ERD design, a 35 table normalized relational schema, role based SQL reporting, and implementation planning.</p>
+          <div class="project-metric">35 Tables | 30+ Entity Classes | 16 Week Plan</div>
+          <button type="button" class="erd-preview" onclick="openErdModal()" aria-label="Open WellCareCorp ER diagram">
+            <img src="ER_Diagram.jpg" alt="WellCareCorp enterprise database ER diagram preview"/>
+            <span>View ER Diagram</span>
+          </button>
+          <div class="project-skills">
+            <span class="project-skill">Oracle SQL</span><span class="project-skill">ERD Design</span><span class="project-skill">Relational Schema</span><span class="project-skill">Window Functions</span><span class="project-skill">Implementation Planning</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-top">
+            <span class="project-badge badge-sql">SQL &middot; Database</span>
+          </div>
+          <h3>Library Management System</h3>
+          <p>Relational database with 6 normalized tables managing books, members, employees, and transactions. Built advanced SQL queries using JOINs, CTAS, and Window Functions to generate branch level revenue reports and identify top performing staff.</p>
+          <div class="project-metric">6 Normalized Tables | Business Reporting</div>
+          <div class="project-skills">
+            <span class="project-skill">SQL</span><span class="project-skill">Relational Modeling</span><span class="project-skill">Window Functions</span><span class="project-skill">CTAS</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DETAIL: Engineering -->
+    <div class="proj-detail" id="cat-engineering">
+      <div class="proj-detail-header">
+        <div class="proj-detail-title">&#128739; &nbsp;Engineering &amp; Domain Tools</div>
+        <span class="back-btn" onclick="showOverview()">&#8592; &nbsp;Back to Categories</span>
+      </div>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-top">
+            <span class="project-badge badge-eng">Engineering &middot; Rule Engine</span>
+            <a href="https://irc-compliance-checker.streamlit.app/" target="_blank" class="live-btn"><span class="live-dot"></span> Live App</a>
+          </div>
+          <h3>IRC Geometric Design Compliance Checker</h3>
+          <p>A rule based compliance engine covering 432+ parameters across three IRC highway design standards. Accepts design inputs, flags HARD FAILs and ADVISORYs instantly, and generates downloadable HTML and Excel audit reports. Built from 9+ years of highway engineering domain knowledge and directly usable on real four lane highway projects in India.</p>
+          <div class="project-metric">432+ Parameters | 3 IRC Standards</div>
+          <div class="project-skills">
+            <span class="project-skill">Python</span><span class="project-skill">Streamlit</span><span class="project-skill">Pandas</span><span class="project-skill">openpyxl</span><span class="project-skill">Rule Engine Design</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <span class="project-badge badge-eng">Computer Vision &middot; Pavement Analytics</span>
+          </div>
+          <h3>Pavement Distress Detection &amp; PCI Assessment Tool</h3>
+          <p>Python pipeline for smartphone based pavement condition assessment. It synchronizes survey video with GPS logs, extracts chainage tagged frames, detects longitudinal cracks, alligator cracking, and potholes with YOLOv11, then computes IRC 82 PCI scores and maintenance recommendations.</p>
+          <div class="project-metric">1,200 Frames | 26 Sample Units | 626.6m Corridor</div>
+          <div class="project-skills">
+            <span class="project-skill">Python</span><span class="project-skill">YOLOv11</span><span class="project-skill">OpenCV</span><span class="project-skill">GPS Processing</span><span class="project-skill">IRC 82 PCI</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -464,56 +636,56 @@ footer{text-align:center;padding:1.8rem;color:var(--muted);font-size:0.8rem;bord
     <div class="fade-in">
       <p class="section-label">Work History</p>
       <h2 class="section-title">Professional Experience</h2>
-      <p class="section-desc">9+ years leading large-scale engineering projects with a strong track record of data-driven decision making and team delivery.</p>
+      <p class="section-desc">9+ years leading large scale engineering projects with a strong track record of data driven decision making and team delivery.</p>
     </div>
     <div class="timeline">
       <div class="timeline-item fade-in">
         <div class="timeline-header">
           <span class="timeline-role">Deputy Manager</span>
-          <span class="timeline-period">Apr 2023 &ndash; Jul 2025</span>
+          <span class="timeline-period">Apr 2023 to Jul 2025</span>
         </div>
         <div class="timeline-company">G R Infraprojects Limited &nbsp;&middot;&nbsp; Gurugram, India</div>
         <ul class="timeline-bullets">
           <li>Led geometric design for <strong>100+ km of highway projects</strong>, optimizing layouts for constructability and cost efficiency.</li>
-          <li>Reduced earthwork estimation variances by <strong>15&ndash;20%</strong> through 3D modelling and volume computation.</li>
-          <li>Supported bid pricing decisions that <strong>cut project costs by 5&ndash;10%</strong> through scenario-based analytical evaluation.</li>
+          <li>Reduced earthwork estimation variances by <strong>15 to 20%</strong> through 3D modelling and volume computation.</li>
+          <li>Supported bid pricing decisions that <strong>cut project costs by 5 to 10%</strong> through scenario based analytical evaluation.</li>
           <li>Trained 2 junior engineers on highway design standards and CAD tools.</li>
         </ul>
       </div>
       <div class="timeline-item fade-in">
         <div class="timeline-header">
           <span class="timeline-role">Senior Manager, Highways</span>
-          <span class="timeline-period">Dec 2020 &ndash; Dec 2022</span>
+          <span class="timeline-period">Dec 2020 to Dec 2022</span>
         </div>
         <div class="timeline-company">Intercontinental Consultants and Technocrats (ICT) &nbsp;&middot;&nbsp; New Delhi, India</div>
         <ul class="timeline-bullets">
-          <li>Managed <strong>7+ concurrent DPR projects</strong> with Rs 100Cr+ cumulative value, ensuring on-time delivery.</li>
-          <li>Reduced inter-departmental delays by <strong>10&ndash;15%</strong> through structured review and communication workflows.</li>
-          <li>Represented the firm in client meetings, translating complex engineering inputs into clear decision-ready insights.</li>
-          <li>Managed and mentored <strong>4&ndash;5 engineers</strong> across design, traffic, pavement, and costing teams.</li>
+          <li>Managed <strong>7+ concurrent DPR projects</strong> with Rs 100Cr+ cumulative value, ensuring on time delivery.</li>
+          <li>Reduced interdepartmental delays by <strong>10 to 15%</strong> through structured review and communication workflows.</li>
+          <li>Represented the firm in client meetings, translating complex engineering inputs into clear decision ready insights.</li>
+          <li>Managed and mentored <strong>4 to 5 engineers</strong> across design, traffic, pavement, and costing teams.</li>
         </ul>
       </div>
       <div class="timeline-item fade-in">
         <div class="timeline-header">
           <span class="timeline-role">Highway Engineer</span>
-          <span class="timeline-period">Oct 2019 &ndash; Dec 2020</span>
+          <span class="timeline-period">Oct 2019 to Dec 2020</span>
         </div>
         <div class="timeline-company">WSP in India &nbsp;&middot;&nbsp; Noida, India</div>
         <ul class="timeline-bullets">
-          <li>Delivered compliance-focused design checks for junction layouts, swept path analyses, and visibility assessments.</li>
-          <li>Assisted the UK team with budget tracking and project controls using Excel-based tools.</li>
+          <li>Delivered compliance focused design checks for junction layouts, swept path analyses, and visibility assessments.</li>
+          <li>Assisted the UK team with budget tracking and project controls using Excel based tools.</li>
           <li>Gained exposure to DMRB international standards and multinational project workflows.</li>
         </ul>
       </div>
       <div class="timeline-item fade-in">
         <div class="timeline-header">
           <span class="timeline-role">Manager &amp; Pavement Design Engineer</span>
-          <span class="timeline-period">Jun 2016 &ndash; Oct 2019</span>
+          <span class="timeline-period">Jun 2016 to Oct 2019</span>
         </div>
         <div class="timeline-company">Intercontinental Consultants and Technocrats (ICT) &nbsp;&middot;&nbsp; New Delhi, India</div>
         <ul class="timeline-bullets">
-          <li>Specialized in flexible, rigid, and composite pavement design with overlay and back-calculation analysis.</li>
-          <li>Led greenfield and brownfield highway design including interchange and grade-separated structure projects.</li>
+          <li>Specialized in flexible, rigid, and composite pavement design with overlay and back calculation analysis.</li>
+          <li>Led greenfield and brownfield highway design including interchange and grade separated structure projects.</li>
         </ul>
       </div>
     </div>
@@ -529,24 +701,27 @@ footer{text-align:center;padding:1.8rem;color:var(--muted);font-size:0.8rem;bord
     </div>
     <div class="edu-grid">
       <div class="edu-card fade-in">
-        <div class="edu-degree">Master of Science &mdash; Business Analytics</div>
+        <div class="edu-degree">Master of Science in Business Analytics</div>
         <div class="edu-school">University of Arizona</div>
-        <div class="edu-meta">Oct 2024 &ndash; May 2026 &nbsp;&middot;&nbsp; Chandler, AZ</div>
-        <div><span class="edu-pill pill-green">GPA: 4.0 / 4.0</span></div>
+        <div class="edu-meta">Oct 2024 to May 2026 &nbsp;&middot;&nbsp; Chandler, AZ</div>
+        <div>
+          <span class="edu-pill pill-green">GPA: 4.0 / 4.0</span>
+          <span class="edu-pill pill-gold">Graduate &nbsp;&#127891;</span>
+        </div>
       </div>
       <div class="edu-card fade-in">
-        <div class="edu-degree">Master's Degree &mdash; Transportation Engineering &amp; Planning</div>
+        <div class="edu-degree">Master's Degree in Transportation Engineering &amp; Planning</div>
         <div class="edu-school">SVNIT Surat, India</div>
-        <div class="edu-meta">Aug 2014 &ndash; Jun 2016</div>
+        <div class="edu-meta">Aug 2014 to Jun 2016</div>
         <div>
           <span class="edu-pill pill-green">GPA: 9.46 / 10</span>
           <span class="edu-pill pill-gold">Silver Medalist</span>
         </div>
       </div>
       <div class="edu-card fade-in">
-        <div class="edu-degree">Bachelor of Technology &mdash; Civil Engineering</div>
+        <div class="edu-degree">Bachelor of Technology in Civil Engineering</div>
         <div class="edu-school">Galgotias College of Engineering, Greater Noida</div>
-        <div class="edu-meta">Sep 2010 &ndash; Jul 2014</div>
+        <div class="edu-meta">Sep 2010 to Jul 2014</div>
         <div><span class="edu-pill pill-green">74.96 / 100</span></div>
       </div>
     </div>
@@ -559,25 +734,31 @@ footer{text-align:center;padding:1.8rem;color:var(--muted);font-size:0.8rem;bord
     <div class="fade-in">
       <p class="section-label">Recognition</p>
       <h2 class="section-title">Awards &amp; Achievements</h2>
-      <p class="section-desc">Recognized for analytical excellence and strategic problem-solving across academic and professional settings.</p>
+      <p class="section-desc">Recognized for analytical excellence and strategic problem solving across academic and professional settings.</p>
     </div>
     <div class="awards-grid">
       <div class="award-card fade-in">
         <div class="award-icon">&#127942;</div>
-        <div class="award-title">1st Place &mdash; Arizona Statewide Business Case Competition</div>
-        <div class="award-org">Graduate Division Winner &nbsp;&middot;&nbsp; W. A. Franke College of Business, NAU. Developed a cooperative-led supply chain strategy for Navajo-Churro wool producers to access premium markets, grounded in the Principled Innovation framework.</div>
+        <div class="award-title">1st Place, Arizona Statewide Business Case Competition</div>
+        <div class="award-org">Graduate Division Winner &nbsp;&middot;&nbsp; W. A. Franke College of Business, NAU. Developed a cooperative led supply chain strategy for Navajo Churro wool producers to access premium markets, grounded in the Principled Innovation framework.</div>
         <span class="award-date">March 2026</span>
       </div>
       <div class="award-card fade-in">
+        <div class="award-icon">&#127891;</div>
+        <div class="award-title">Academic Excellence Award, MS Business Analytics</div>
+        <div class="award-org">University of Arizona, Eller College of Management. Awarded for maintaining a perfect 4.0 GPA throughout the MS Business Analytics program , recognizing consistent academic distinction across analytics, ML, and business strategy coursework.</div>
+        <span class="award-date">May 2026</span>
+      </div>
+      <div class="award-card fade-in">
         <div class="award-icon">&#127942;</div>
-        <div class="award-title">1st Place &mdash; American Express Business Analytics Competition</div>
-        <div class="award-org">University of Arizona. Led end-to-end credit risk and customer segmentation analysis on 36K+ client applications using Tableau, identifying key drivers of repayment risk beyond conventional income metrics.</div>
+        <div class="award-title">1st Place, American Express Business Analytics Competition</div>
+        <div class="award-org">University of Arizona. Led complete credit risk and customer segmentation analysis on 36K+ client applications using Tableau, identifying key drivers of repayment risk beyond conventional income metrics.</div>
         <span class="award-date">December 2025</span>
       </div>
       <div class="award-card fade-in">
         <div class="award-icon">&#129352;</div>
         <div class="award-title">Dr. B.K. Katti Silver Medal Award</div>
-        <div class="award-org">Sardar Vallabhbhai National Institute of Technology, Surat. Awarded for academic excellence &mdash; graduating as Silver Medalist in the M.Tech Transportation Engineering program with a GPA of 9.46/10.</div>
+        <div class="award-org">Sardar Vallabhbhai National Institute of Technology, Surat. Awarded for academic excellence, graduating as Silver Medalist in the M.Tech Transportation Engineering program with a GPA of 9.46/10.</div>
         <span class="award-date">January 2017</span>
       </div>
     </div>
@@ -591,24 +772,17 @@ footer{text-align:center;padding:1.8rem;color:var(--muted);font-size:0.8rem;bord
       <div>
         <p class="section-label">Let's Connect</p>
         <h2 class="section-title" style="font-size:2rem;">Open to Data &amp; ML Opportunities</h2>
-        <p style="color:var(--body);margin-top:1rem;font-size:0.95rem;line-height:1.7;">Currently seeking full-time roles in Data Analytics, Applied ML, or Business Intelligence. Based in Chandler, AZ &mdash; available May 2026.</p>
+        <p style="color:var(--body);margin-top:1rem;font-size:0.95rem;line-height:1.7;">MS Business Analytics graduate (GPA 4.0) seeking full time roles in Data Analytics, Applied ML, or Business Intelligence. Based in Chandler, AZ, available immediately.</p>
         <a href="#contact" class="btn-primary" style="margin-top:2rem;display:inline-flex;">&#9993; Send Me an Email</a>
       </div>
       <div class="contact-links">
-        <div class="contact-link">
+        <a href="mailto:kkvkausal%40gmail.com" class="contact-link">
           <div class="contact-link-icon">&#9993;</div>
           <div>
             <div class="contact-link-label">Email</div>
-            <div class="contact-link-value">kkv.goal [at] gmail.com</div>
+            <div class="contact-link-value">kkvkausal&#64;gmail.com</div>
           </div>
-        </div>
-        <div class="contact-link">
-          <div class="contact-link-icon">&#127891;</div>
-          <div>
-            <div class="contact-link-label">University Email</div>
-            <div class="contact-link-value">kkv1 [at] arizona.edu</div>
-          </div>
-        </div>
+        </a>
         <a href="https://github.com/kkvhub" target="_blank" class="contact-link">
           <div class="contact-link-icon">&#128025;</div>
           <div>
@@ -627,14 +801,14 @@ footer{text-align:center;padding:1.8rem;color:var(--muted);font-size:0.8rem;bord
           <div class="contact-link-icon">&#128188;</div>
           <div>
             <div class="contact-link-label">LinkedIn</div>
-            <div class="contact-link-value">kaushlendrakumar-verma</div>
+            <div class="contact-link-value">kaushlendrakumar verma</div>
           </div>
         </a>
-        <a href="tel:4805694865" class="contact-link">
+        <a href="tel:+14805694865" class="contact-link">
           <div class="contact-link-icon">&#128222;</div>
           <div>
             <div class="contact-link-label">Phone</div>
-            <div class="contact-link-value">(480) 569-4865</div>
+            <div class="contact-link-value">+1 (480) 569 4865</div>
           </div>
         </a>
       </div>
@@ -642,12 +816,65 @@ footer{text-align:center;padding:1.8rem;color:var(--muted);font-size:0.8rem;bord
   </div>
 </section>
 
+<div class="image-modal" id="erdModal" role="dialog" aria-modal="true" aria-label="WellCareCorp ER diagram">
+  <div class="image-modal-panel">
+    <div class="modal-toolbar">
+      <button type="button" class="modal-btn" onclick="zoomErdOut()">Zoom Out</button>
+      <button type="button" class="modal-btn" onclick="resetErdZoom()">Reset</button>
+      <button type="button" class="modal-btn" onclick="zoomErdIn()">Zoom In</button>
+      <button type="button" class="modal-btn" onclick="closeErdModal()">Close</button>
+    </div>
+    <div class="erd-image-wrap">
+      <img src="ER_Diagram.jpg" class="erd-modal-image" id="erdModalImage" alt="WellCareCorp enterprise database ER diagram"/>
+    </div>
+  </div>
+</div>
+
 <footer>
-  <p>&#169; 2026 Kaushlendra Kumar Verma &nbsp;&middot;&nbsp; Built for impact, powered by data.</p>
+  <p>&#169; 2026 Kaushlendra Kumar Verma &nbsp;&middot;&nbsp; Built for impact. Powered by data.</p>
 </footer>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
+  var erdModal = document.getElementById("erdModal");
+  var erdModalImage = document.getElementById("erdModalImage");
+  var erdZoom = 1;
+  function applyErdZoom() {
+    if (!erdModalImage) return;
+    erdModalImage.style.width = (erdZoom * 100) + "%";
+  }
+  window.zoomErdIn = function() {
+    erdZoom = Math.min(3, +(erdZoom + 0.25).toFixed(2));
+    applyErdZoom();
+  };
+  window.zoomErdOut = function() {
+    erdZoom = Math.max(0.75, +(erdZoom - 0.25).toFixed(2));
+    applyErdZoom();
+  };
+  window.resetErdZoom = function() {
+    erdZoom = 1;
+    applyErdZoom();
+  };
+  window.openErdModal = function() {
+    if (!erdModal) return;
+    window.resetErdZoom();
+    erdModal.classList.add("active");
+    document.body.style.overflow = "hidden";
+  };
+  window.closeErdModal = function() {
+    if (!erdModal) return;
+    erdModal.classList.remove("active");
+    document.body.style.overflow = "";
+  };
+  if (erdModal) {
+    erdModal.addEventListener("click", function(event) {
+      if (event.target === erdModal) window.closeErdModal();
+    });
+  }
+  document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") window.closeErdModal();
+  });
+
   // Fade-in observer
   var faders = document.querySelectorAll(".fade-in");
   var observer = new IntersectionObserver(function(entries) {
@@ -666,14 +893,31 @@ document.addEventListener("DOMContentLoaded", function() {
     observer.observe(el);
   });
 
-  // Orbit animation using JS positioning — icons never rotate on their axis
+  // Project category navigation
+  window.showCategory = function(cat) {
+    document.getElementById("projOverview").style.display = "none";
+    document.querySelectorAll(".proj-detail").forEach(function(d){ d.classList.remove("active"); });
+    var el = document.getElementById("cat-" + cat);
+    if (el) {
+      el.classList.add("active");
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+  window.showOverview = function() {
+    document.querySelectorAll(".proj-detail").forEach(function(d){ d.classList.remove("active"); });
+    var ov = document.getElementById("projOverview");
+    ov.style.display = "grid";
+    document.getElementById("projects").scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  // Orbit animation using JS positioning so icons stay upright
   var viz = document.getElementById("skillViz");
   if (!viz) return;
 
   var cx = 210, cy = 210; // center of 420x420 container
   var r1 = 110, r2 = 175; // inner and outer orbit radii
   var speed1 = 0.0003;    // radians per ms, clockwise
-  var speed2 = -0.0002;   // counter-clockwise for outer ring
+  var speed2 = -0.0002;   // opposite direction for outer ring
 
   var nodes = viz.querySelectorAll(".viz-node");
   var inner = [], outer = [];
