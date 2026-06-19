@@ -125,7 +125,8 @@ section{position:relative;scroll-margin-top:84px;}
 .cat-desc{color:var(--body);font-size:0.88rem;line-height:1.6;margin-bottom:1.2rem;}
 .cat-pills{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:1.4rem;}
 .cat-pill{background:var(--tag-bg);border:1px solid var(--border);color:var(--body);font-size:0.72rem;padding:0.22rem 0.6rem;border-radius:4px;font-weight:500;}
-.cat-cta{display:inline-flex;align-items:center;gap:0.4rem;font-family:'Montserrat',sans-serif;font-size:0.78rem;font-weight:700;color:var(--green);letter-spacing:0.03em;margin-top:auto;}
+.cat-cta{display:inline-flex;align-items:center;gap:0.5rem;font-family:'Montserrat',sans-serif;font-size:0.8rem;font-weight:700;color:#fff;background:var(--green);letter-spacing:0.03em;margin-top:1.2rem;padding:0.55rem 1.2rem;border-radius:7px;transition:background 0.2s,transform 0.15s,box-shadow 0.15s;align-self:flex-start;}
+.cat-card:hover .cat-cta{background:#047857;transform:translateY(-1px);box-shadow:0 4px 16px rgba(5,150,105,0.2);}
 
 /* Detail view (project list inside a category) */
 .proj-detail{display:none;scroll-margin-top:84px;}
@@ -149,6 +150,10 @@ section{position:relative;scroll-margin-top:84px;}
 .live-btn:hover{background:#047857;}
 .live-dot{width:5px;height:5px;border-radius:50%;background:#6ee7b7;flex-shrink:0;}
 .tableau-note{font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:700;color:var(--green);letter-spacing:0.05em;text-transform:uppercase;margin:0.35rem 0 0.45rem;}
+.view-btn{display:inline-flex;align-items:center;gap:0.5rem;background:var(--green);color:#fff;font-family:'Montserrat',sans-serif;font-size:0.8rem;font-weight:700;padding:0.55rem 1.2rem;border-radius:7px;text-decoration:none;transition:background 0.2s,transform 0.15s,box-shadow 0.15s;letter-spacing:0.02em;}
+.view-btn:hover{background:#047857;transform:translateY(-2px);box-shadow:0 4px 16px rgba(5,150,105,0.18);}
+.view-btn-alt{display:inline-flex;align-items:center;gap:0.5rem;background:transparent;color:var(--green);font-family:'Montserrat',sans-serif;font-size:0.8rem;font-weight:700;padding:0.55rem 1.2rem;border-radius:7px;text-decoration:none;border:1.5px solid var(--green);transition:all 0.2s,transform 0.15s;}
+.view-btn-alt:hover{background:var(--green);color:#fff;transform:translateY(-2px);box-shadow:0 4px 16px rgba(5,150,105,0.18);}
 .project-card h3{font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:0.6rem;line-height:1.3;}
 .project-card p{color:var(--body);font-size:0.88rem;margin-bottom:1rem;line-height:1.65;flex-grow:1;}
 .project-metric{display:inline-flex;align-items:center;flex-wrap:wrap;gap:0.4rem;background:var(--green-light);border:1px solid var(--green-border);color:var(--green);font-size:0.78rem;font-weight:700;padding:0.3rem 0.8rem;border-radius:6px;margin-bottom:1rem;font-family:'Montserrat',sans-serif;align-self:flex-start;line-height:1.45;}
@@ -416,7 +421,7 @@ footer{text-align:center;padding:1.8rem;color:var(--muted);font-size:0.8rem;bord
     <div class="fade-in">
       <p class="section-label">Portfolio</p>
       <h2 class="section-title">Featured Projects</h2>
-      <p class="section-desc">11 projects across ML, analytics, and engineering. Select a category to explore.</p>
+      <p class="section-desc">12 projects across ML, analytics, and engineering. Select a category to explore.</p>
     </div>
 
     <!-- OVERVIEW: 3 category cards -->
@@ -429,7 +434,7 @@ footer{text-align:center;padding:1.8rem;color:var(--muted);font-size:0.8rem;bord
         <div class="cat-pills">
           <span class="cat-pill">TensorFlow</span><span class="cat-pill">XGBoost</span><span class="cat-pill">Scikit learn</span><span class="cat-pill">SMOTE</span><span class="cat-pill">CNN</span>
         </div>
-        <div class="cat-cta">4 Projects &#8594;</div>
+        <div class="cat-cta">Explore 4 Projects &#8594;</div>
       </div>
 
       <div class="cat-card" onclick="showCategory('analytics')">
@@ -439,7 +444,7 @@ footer{text-align:center;padding:1.8rem;color:var(--muted);font-size:0.8rem;bord
         <div class="cat-pills">
           <span class="cat-pill">Tableau</span><span class="cat-pill">Python</span><span class="cat-pill">R</span><span class="cat-pill">Oracle SQL</span><span class="cat-pill">GeoPandas</span>
         </div>
-        <div class="cat-cta">5 Projects &#8594;</div>
+        <div class="cat-cta">Explore 6 Projects &#8594;</div>
       </div>
 
       <div class="cat-card" onclick="showCategory('engineering')">
@@ -449,7 +454,7 @@ footer{text-align:center;padding:1.8rem;color:var(--muted);font-size:0.8rem;bord
         <div class="cat-pills">
           <span class="cat-pill">Python</span><span class="cat-pill">Streamlit</span><span class="cat-pill">YOLOv11</span><span class="cat-pill">IRC Standards</span><span class="cat-pill">PCI</span>
         </div>
-        <div class="cat-cta">2 Projects &#8594;</div>
+        <div class="cat-cta">Explore 2 Projects &#8594;</div>
       </div>
 
     </div>
@@ -525,6 +530,21 @@ footer{text-align:center;padding:1.8rem;color:var(--muted);font-size:0.8rem;bord
 
         <div class="project-card">
           <div class="project-top">
+            <span class="project-badge badge-analytics">Geospatial Analytics &middot; Road Safety</span>
+          </div>
+          <h3>Tempe Road Safety Network — KSI Crash Prediction &amp; Spatial Risk Analysis</h3>
+          <p>End-to-end GIS and ML pipeline on 56,471 crash records (2012–2025) for the City of Tempe. Built a 7-script ArcPy spatial pipeline integrating ADOT crash data, road network, Census tracts, school locations, and transit stops. Trained four binary classifiers to predict KSI (Killed or Seriously Injured) outcomes; applied SHAP to quantify modifiable (infrastructure) vs behavioral risk factors. Hot spot analysis (Getis-Ord Gi*) and school proximity ring analysis published as an interactive ArcGIS StoryMap.</p>
+          <div class="project-metric">ROC-AUC: 0.824 &nbsp;&middot;&nbsp; 91% KSI Recall @ 0.30 threshold &nbsp;&middot;&nbsp; 56K+ Records</div>
+          <div class="project-skills">
+            <span class="project-skill">Python</span><span class="project-skill">ArcGIS Pro</span><span class="project-skill">ArcPy</span><span class="project-skill">XGBoost</span><span class="project-skill">SHAP</span><span class="project-skill">Scikit-learn</span><span class="project-skill">Plotly</span><span class="project-skill">GeoPandas</span>
+          </div>
+          <div style="display:flex;gap:0.6rem;margin-top:1rem;flex-wrap:wrap;">
+            <a href="https://arcg.is/0HX09S1" target="_blank" class="view-btn">&#127758; View ArcGIS StoryMap</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">
             <span class="project-badge badge-analytics">Business Consulting &middot; Geospatial Clustering</span>
           </div>
           <h3>Precision GLP 1 Market Prioritization</h3>
@@ -533,38 +553,9 @@ footer{text-align:center;padding:1.8rem;color:var(--muted);font-size:0.8rem;bord
           <div class="project-skills">
             <span class="project-skill">Python</span><span class="project-skill">GeoPandas</span><span class="project-skill">K means</span><span class="project-skill">Scikit learn</span><span class="project-skill">Tableau</span>
           </div>
-          <div class="tableau-note">View in Tableau</div>
-          <div style="display:flex;gap:0.5rem;margin-top:1rem;flex-wrap:wrap;">
-            <a href="https://public.tableau.com/app/profile/kaushlendra.verma/viz/GLP1_17771618290300/GLP1_Analytics" target="_blank" class="live-btn"><span class="live-dot"></span> Exploratory Dashboard</a>
-            <a href="https://public.tableau.com/app/profile/kaushlendra.verma/viz/GLP1_Phase_rollout/GLP1_Rollout2" target="_blank" class="live-btn" style="background:#047857;"><span class="live-dot"></span> Rollout Dashboard</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-top">
-            <span class="project-badge badge-analytics">Analytics &middot; 1st Place</span>
-          </div>
-          <h3>AmEx Credit Risk Analytics Competition</h3>
-          <p>Won 1st place at the American Express Business Analytics Competition. Analyzed credit risk and customer segmentation across 36K+ client applications using Tableau. Found that property ownership and spending behavior are stronger repayment predictors than income or employment status.</p>
-          <div class="project-metric">1st Place | 36K+ Applications</div>
-          <div class="project-skills">
-            <span class="project-skill">Tableau</span><span class="project-skill">EDA</span><span class="project-skill">Customer Segmentation</span><span class="project-skill">Risk Analysis</span>
-          </div>
-          <div class="tableau-note">View in Tableau</div>
-          <div style="display:flex;gap:0.5rem;margin-top:1rem;flex-wrap:wrap;">
-            <a href="https://public.tableau.com/app/profile/kaushlendra.verma/viz/AmericanExpressCreditRiskAnalysis/ClientDemographics" target="_blank" class="live-btn"><span class="live-dot"></span> Exploratory Dashboard</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-top">
-            <span class="project-badge badge-r">R &middot; Regression &middot; Policy</span>
-          </div>
-          <h3>Determinants of Passport Cost Across Countries</h3>
-          <p>Regression model using data from 125 countries identifying economic and governance drivers of passport pricing. Applied BIC and Best Subset model selection with multicollinearity diagnostics. GDP per capita and political stability emerged as primary determinants, with implications for pricing fairness and policy design.</p>
-          <div class="project-metric">125 Countries | Policy Insights</div>
-          <div class="project-skills">
-            <span class="project-skill">R</span><span class="project-skill">Regression Modeling</span><span class="project-skill">VIF / ANOVA</span><span class="project-skill">BIC</span><span class="project-skill">Feature Selection</span>
+          <div style="display:flex;gap:0.6rem;margin-top:1rem;flex-wrap:wrap;">
+            <a href="https://public.tableau.com/app/profile/kaushlendra.verma/viz/GLP1_17771618290300/GLP1_Analytics" target="_blank" class="view-btn">&#128202; View Exploratory Dashboard</a>
+            <a href="https://public.tableau.com/app/profile/kaushlendra.verma/viz/GLP1_Phase_rollout/GLP1_Rollout2" target="_blank" class="view-btn">&#128203; View Rollout Dashboard</a>
           </div>
         </div>
 
@@ -583,6 +574,34 @@ footer{text-align:center;padding:1.8rem;color:var(--muted);font-size:0.8rem;bord
             <span class="project-skill">Oracle SQL</span><span class="project-skill">ERD Design</span><span class="project-skill">Relational Schema</span><span class="project-skill">Window Functions</span><span class="project-skill">Implementation Planning</span>
           </div>
         </div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <span class="project-badge badge-analytics">Analytics &middot; 1st Place</span>
+          </div>
+          <h3>AmEx Credit Risk Analytics Competition</h3>
+          <p>Won 1st place at the American Express Business Analytics Competition. Analyzed credit risk and customer segmentation across 36K+ client applications using Tableau. Found that property ownership and spending behavior are stronger repayment predictors than income or employment status.</p>
+          <div class="project-metric">1st Place | 36K+ Applications</div>
+          <div class="project-skills">
+            <span class="project-skill">Tableau</span><span class="project-skill">EDA</span><span class="project-skill">Customer Segmentation</span><span class="project-skill">Risk Analysis</span>
+          </div>
+          <div style="display:flex;gap:0.6rem;margin-top:1rem;flex-wrap:wrap;">
+            <a href="https://public.tableau.com/app/profile/kaushlendra.verma/viz/AmericanExpressCreditRiskAnalysis/ClientDemographics" target="_blank" class="view-btn">&#128202; View Exploratory Dashboard</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <span class="project-badge badge-r">R &middot; Regression &middot; Policy</span>
+          </div>
+          <h3>Determinants of Passport Cost Across Countries</h3>
+          <p>Regression model using data from 125 countries identifying economic and governance drivers of passport pricing. Applied BIC and Best Subset model selection with multicollinearity diagnostics. GDP per capita and political stability emerged as primary determinants, with implications for pricing fairness and policy design.</p>
+          <div class="project-metric">125 Countries | Policy Insights</div>
+          <div class="project-skills">
+            <span class="project-skill">R</span><span class="project-skill">Regression Modeling</span><span class="project-skill">VIF / ANOVA</span><span class="project-skill">BIC</span><span class="project-skill">Feature Selection</span>
+          </div>
+        </div>
+
         <div class="project-card">
           <div class="project-top">
             <span class="project-badge badge-sql">SQL &middot; Database</span>
@@ -593,6 +612,7 @@ footer{text-align:center;padding:1.8rem;color:var(--muted);font-size:0.8rem;bord
           <div class="project-skills">
             <span class="project-skill">SQL</span><span class="project-skill">Relational Modeling</span><span class="project-skill">Window Functions</span><span class="project-skill">CTAS</span>
           </div>
+        </div>
         </div>
 
       </div>
