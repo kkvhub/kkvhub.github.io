@@ -25,8 +25,12 @@ body{background:var(--white);color:var(--body);font-family:'Inter',sans-serif;fo
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 4rem;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-brand{display:flex;align-items:center;gap:0.85rem;}
 .nav-logo{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.1rem;color:var(--heading);text-decoration:none;letter-spacing:-0.02em;}
 .nav-logo span{color:var(--green);}
+.nav-role{display:flex;flex-direction:column;line-height:1.15;border-left:1px solid var(--border);padding-left:0.85rem;}
+.nav-role .nav-role-main{font-family:'Montserrat',sans-serif;font-size:0.78rem;font-weight:700;color:var(--heading);}
+.nav-role .nav-role-sub{font-size:0.68rem;font-weight:500;color:var(--green);}
 .nav-links{display:flex;gap:2rem;list-style:none;}
 .nav-links a{color:var(--body);text-decoration:none;font-size:0.85rem;font-weight:500;transition:color 0.2s;}
 .nav-links a:hover{color:var(--green);}
@@ -231,6 +235,7 @@ footer{text-align:center;padding:1.8rem;color:var(--muted);font-size:0.8rem;bord
 @media(max-width:900px){
   nav{padding:0 1.5rem;}
   .nav-links{display:none;}
+  .nav-role{display:none;}
   .hero-inner{grid-template-columns:1fr;}
   .hero-visual{display:none;}
   .about-grid{grid-template-columns:1fr;gap:2rem;}
@@ -248,7 +253,13 @@ footer{text-align:center;padding:1.8rem;color:var(--muted);font-size:0.8rem;bord
 <body>
 
 <nav>
-  <a href="#hero" class="nav-logo">KKV<span>.</span></a>
+  <div class="nav-brand">
+    <a href="#hero" class="nav-logo">KKV<span>.</span></a>
+    <div class="nav-role">
+      <span class="nav-role-main">Transportation Analyst &middot; Applied Data / ML Engineer</span>
+      <span class="nav-role-sub">MS Business Analytics &amp; Transportation Engineering</span>
+    </div>
+  </div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
@@ -318,35 +329,13 @@ footer{text-align:center;padding:1.8rem;color:var(--muted);font-size:0.8rem;bord
       </div>
       <div class="about-right fade-in">
         <div class="skill-split">
-          <div class="tag-group-label">Analytics Skills</div>
+          <div class="tag-group-label">Focus Areas</div>
           <div class="tags">
-            <span class="tag">Machine Learning</span>
+            <span class="tag">Transportation Analytics</span>
+            <span class="tag">Predictive Modeling</span>
             <span class="tag">Deep Learning</span>
-            <span class="tag">Python</span>
-            <span class="tag">SQL</span>
-            <span class="tag">R</span>
-            <span class="tag">Tableau</span>
-            <span class="tag">Power BI</span>
-            <span class="tag">Computer Vision</span>
-            <span class="tag">Keras</span>
-            <span class="tag">Scikit learn</span>
-            <span class="tag">Data Visualization</span>
-            <span class="tag">Statistical Analysis</span>
-            <span class="tag">ETL Pipelines</span>
-            <span class="tag">Feature Engineering</span>
-          </div>
-        </div>
-        <div class="skill-split">
-          <div class="tag-group-label">Engineering Skills</div>
-          <div class="tags">
-            <span class="tag">Geometric Design</span>
-            <span class="tag">Pavement Life Prediction</span>
-            <span class="tag">Pavement Maintenance</span>
-            <span class="tag">Traffic Engineering</span>
-            <span class="tag">Road Safety Compliance</span>
-            <span class="tag">Pavement Condition Analysis</span>
-            <span class="tag">Quantity Estimation</span>
-            <span class="tag">Drainage Design</span>
+            <span class="tag">Geospatial / GIS</span>
+            <span class="tag">Road Safety &amp; Risk</span>
           </div>
         </div>
         <div class="tag-group-label">Currently</div>
